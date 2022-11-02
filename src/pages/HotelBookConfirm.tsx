@@ -7,8 +7,15 @@ import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 
 const HotelBookConfirm = () => {
-  const user = useAppSelector((state) => state.user.value);
-  console.log(user);
+  const { checkIn, checkOut, numOfGuests } = useAppSelector(
+    (state) => state.user.value.hotelSearch
+  );
+  const { hotelName, hotelReviewScore, hotelReviewNr, hotelImg } =
+    useAppSelector((state) => state.user.value.hotelSearch.hotelInfo);
+  const { roomName, amountTotal } = useAppSelector(
+    (state) => state.user.value.hotelSearch.roomSelected
+  );
+
   return (
     <div className="px-8 pt-6 font-DmSans bg-c8 ">
       <div>
@@ -20,28 +27,24 @@ const HotelBookConfirm = () => {
       </div>
 
       <div className="mt-5">
-        <p className="text-[#23262F] text-2xl font-medium">
-          {user.hotelSearch.hotelInfo.hotel_name_trans}
-        </p>
+        <p className="text-[#23262F] text-2xl font-medium">{hotelName}</p>
         <div className="flex items-center justify-between mt-2">
           <div className="flex items-center gap-1 ">
             <StarIcon className="text-[#FFC107] text-md" />
             <p className=" text-[#353945] text-sm font-bold">
-              {user.hotelSearch.hotelInfo.review_score}
+              {hotelReviewScore}
             </p>
             <p className="text-sm text-[#777E90] font-semibold">
-              ({user.hotelSearch.hotelInfo.review_nr} reviews)
+              ({hotelReviewNr} reviews)
             </p>
           </div>
-          <p className="text-[#353945] text-sm font-semibold">
-            {user.hotelSearch.roomSelected.room_name}
-          </p>
+          <p className="text-[#353945] text-sm font-semibold">{roomName}</p>
         </div>
       </div>
 
       <img
         className="mt-6 rounded-lg drop-shadow-md"
-        src={user.hotelSearch.hotelInfo.max_photo_url}
+        src={hotelImg}
         alt="hotel_photo"
       />
 
@@ -51,19 +54,19 @@ const HotelBookConfirm = () => {
             <p className="text-base font-semibold text-c1">Date</p>
             <div className="flex items-center gap-1">
               <p className="mt-1 text-base text-c4 font-medum">
-                {user.hotelSearch.checkIn.split("-").join(" ")}{" "}
+                {checkIn.split("-").join(" ")}{" "}
               </p>
 
               <ArrowForwardIosIcon className="mt-1 text-sm text-c4" />
               <p className="mt-1 text-base text-c4 font-medum">
-                {user.hotelSearch.checkOut.split("-").join(" ")}
+                {checkOut.split("-").join(" ")}
               </p>
             </div>
           </div>
           <div className="bg-[#F4F4F6] rounded-lg p-2">
             <p className="text-base font-semibold text-c1">Traveller</p>
             <p className="mt-1 text-base text-c4 font-medum">
-              {user.hotelSearch.numOfGuests} Passenger
+              {numOfGuests} Passenger
             </p>
           </div>
 
@@ -85,11 +88,7 @@ const HotelBookConfirm = () => {
                 <p>Total</p>
               </div>
               <p className="text-[#353945] text-md font-medium">
-                {
-                  user.hotelSearch.roomSelected.product_price_breakdown
-                    .all_inclusive_amount.value
-                }{" "}
-                €
+                {amountTotal} €
               </p>
             </div>
             <div className="flex items-center justify-between">

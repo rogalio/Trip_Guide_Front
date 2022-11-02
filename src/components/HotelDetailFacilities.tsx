@@ -3,11 +3,10 @@ import { useGetHotelFacilitiesQuery } from "../redux/TopTourApi";
 import { useAppSelector } from "../redux/hooks";
 
 const HotelDetailFacilities = () => {
-  const user = useAppSelector((state) => state.user.value);
+  const hotelSearch = useAppSelector((state) => state.user.value.hotelSearch);
   const { data, error, isLoading } = useGetHotelFacilitiesQuery({
-    hotelId: user.hotelSearch.hotelId,
+    hotelId: hotelSearch.hotelId,
   });
-  console.log(data);
 
   return isLoading ? (
     <p>is loading </p>

@@ -27,7 +27,7 @@ const LocDateBookiForm = () => {
     dest_type: string;
   }
 
-  const user = useAppSelector((state) => state.user.value);
+  // const user = useAppSelector((state) => state.user.value.hotelSearch);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -83,7 +83,7 @@ const LocDateBookiForm = () => {
     dispatch(addDestid(userInputSearchLocationRef));
     dispatch(addLocation(locationChooseByUser.label));
     dispatch(addDestType(userInputSearchLocationDestType));
-    console.log(user);
+    // console.log(user);
 
     navigate("/hotels/list");
   };

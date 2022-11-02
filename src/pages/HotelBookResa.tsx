@@ -6,12 +6,6 @@ import { useAppDispatch } from "../redux/hooks";
 import { addRoomSelected } from "../redux/UserSlice";
 
 const HotelBookResa = () => {
-  const location = useLocation();
-  const { roomSelected } = location.state;
-  const dispatch = useAppDispatch();
-
-  dispatch(addRoomSelected(roomSelected));
-
   return (
     <div className="flex flex-col-reverse mx-8">
       <HotelBookPay />

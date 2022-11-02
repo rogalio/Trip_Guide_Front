@@ -2,8 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../redux/store";
 
+// Define a type for the roomSelected state
+interface RoomSelected {
+  amountPerNight: number;
+  amountWithTax: number;
+  amountTotal: number;
+  roomName: string;
+}
+
+// Define a type for the hotelInfo state
+interface HotelInfo {
+  hotelName: string;
+  hotelReviewScore: number;
+  hotelReviewScoreWord: string;
+  hotelReviewNr: number;
+  hotelCity: string;
+  hotelCountry: string;
+  hotelAccommodationType: string;
+  hotelUnitConfiguration: string;
+  hotelCancellation: number;
+  hotelImg: string;
+}
+
 // Define a type for the slice state
-interface CounterState {
+interface HotelState {
   value: {
     hotelSearch: {
       location: string;
@@ -13,8 +35,8 @@ interface CounterState {
       checkOut: string;
       numOfGuests: number;
       hotelId: string;
-      hotelInfo: any;
-      roomSelected: any;
+      hotelInfo: HotelInfo;
+      roomSelected: RoomSelected;
       payment: number;
       paymentId: string;
     };
@@ -22,7 +44,7 @@ interface CounterState {
 }
 
 // Define the initial state using that type
-const initialState: CounterState = {
+const initialState: HotelState = {
   value: {
     hotelSearch: {
       location: "",
@@ -32,8 +54,24 @@ const initialState: CounterState = {
       checkOut: "",
       numOfGuests: 2,
       hotelId: "",
-      hotelInfo: {},
-      roomSelected: {},
+      hotelInfo: {
+        hotelName: "",
+        hotelReviewScore: 0,
+        hotelReviewScoreWord: "",
+        hotelReviewNr: 0,
+        hotelCity: "",
+        hotelCountry: "",
+        hotelAccommodationType: "",
+        hotelUnitConfiguration: "",
+        hotelCancellation: 0,
+        hotelImg: "",
+      },
+      roomSelected: {
+        amountPerNight: 0,
+        amountWithTax: 0,
+        amountTotal: 0,
+        roomName: "",
+      },
       payment: 0,
       paymentId: "",
     },

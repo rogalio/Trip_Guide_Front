@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { useEffect, useState } from "react";
 
 export const useAxiosFetch = (url: string) => {
@@ -25,7 +26,6 @@ export const useAxiosFetch = (url: string) => {
       }
     })();
   }, [url]);
-  console.log(data, "data");
 
   return { data, error, loaded };
 };
