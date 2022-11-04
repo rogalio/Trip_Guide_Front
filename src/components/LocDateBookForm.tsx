@@ -109,7 +109,7 @@ const LocDateBookiForm = () => {
           placeholder={" Where do you want to go ?"}
           value={
             locationChooseByUser
-              ? locationChooseByUser?.innerHTML?.slice(0, 40)
+              ? locationChooseByUser.innerHTML.slice(0, 40)
               : userInputSearchLocation
           }
           // value={locationChooseByUser?.label.slice(0, 40)}
@@ -131,7 +131,7 @@ const LocDateBookiForm = () => {
         )}
 
         {showAutocomplete && (
-          <div className=" flex  flex-col gap-2 absolute mt-6 z-50 w-full  pt-6  px-4 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md ">
+          <div className=" flex  flex-col gap-2 absolute mt-6 w-full  pt-6  px-4 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md ">
             {data &&
               data.map((autocomplete: IautocompleteFromApi, index) => {
                 return (
@@ -141,7 +141,7 @@ const LocDateBookiForm = () => {
                     value={autocomplete.dest_type}
                     id={autocomplete.dest_id}
                     onClick={(e) => setlocationChooseByUser(e.target)}
-                    className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px]"
+                    className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] z-50"
                   >
                     {autocomplete.label.slice(0, 50)}
                   </option>
