@@ -20,8 +20,11 @@ const HotelDetail = () => {
       <HotelDetailPhotos />
       <HotelDetailHighlight />
       <HotelDetailFacilities />
-      <button onClick={handleDisplay}>Display room</button>
-      {displayRomm && <HotelDetailRoomsAvailable />}
+      {displayRomm ? (
+        <HotelDetailRoomsAvailable />
+      ) : (
+        <button onClick={handleDisplay}>Show rooms</button>
+      )}
     </div>
   );
 };
