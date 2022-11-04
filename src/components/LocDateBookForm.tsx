@@ -138,12 +138,12 @@ const LocDateBookiForm = () => {
         )}
 
         {showAutocomplete && (
-          <div className=" flex  flex-col gap-2 z-50 absolute    mt-6 w-full  pt-6  px-4 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md ">
+          <div className=" flex  flex-col gap-2 z-50 absolute h-[300px]    mt-6 w-full  pt-6  px-4 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md ">
             {destinationChoose[0].map((destination: any) => {
               return (
                 <option
                   onClick={() => setlocationChooseByUser(destination)}
-                  className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] z-50"
+                  className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] "
                 >
                   {destination.label}
                 </option>
