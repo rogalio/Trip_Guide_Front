@@ -40,7 +40,7 @@ const HotelDetailRoomsAvailable = () => {
   if (isError) {
     return <div>Error: please refresh</div>;
   }
-
+  //
   return (
     <div>
       {data?.map((room: any) => {
