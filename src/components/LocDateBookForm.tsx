@@ -5,6 +5,7 @@ import axios from "axios";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
+import { log } from "console";
 import {
   addCheckIn,
   addCheckOut,
@@ -35,8 +36,6 @@ const LocDateBookiForm = () => {
   const [showAutocomplete, setshowAutocomplete] = useState<boolean>(false);
 
   const userInputSearchLocation: string = watch("location");
-  const userInputSearchLocationRef: number = Number(locationChooseByUser?.id);
-  const userInputSearchLocationDestType: string = locationChooseByUser?.value;
   const userCheckIn: string = watch("checkIn");
   const userCheckOut: string = watch("checkOut");
 
@@ -50,7 +49,7 @@ const LocDateBookiForm = () => {
   };
 
   const deleteInputLocation = (): void => {
-    setlocationChooseByUser("");
+    setlocationChooseByUser([]);
   };
 
   const handleSearch = async (): Promise<void> => {
@@ -78,13 +77,11 @@ const LocDateBookiForm = () => {
   const onSubmit = () => {
     dispatch(addCheckIn(userCheckIn));
     dispatch(addCheckOut(userCheckOut));
-    dispatch(addDestid(userInputSearchLocationRef));
-    dispatch(addLocation(locationChooseByUser.label));
-    dispatch(addDestType(userInputSearchLocationDestType));
+    dispatch(addDestid(Number(locationChooseByUser[1])));
+    dispatch(addLocation(locationChooseByUser[2]));
+    dispatch(addDestType(locationChooseByUser[0]));
     navigate("/hotels/list");
   };
-
-  console.log(data);
 
   return (
     <form
@@ -109,14 +106,13 @@ const LocDateBookiForm = () => {
           placeholder={" Where do you want to go ?"}
           value={
             locationChooseByUser
-              ? locationChooseByUser.innerHTML.slice(0, 40)
+              ? locationChooseByUser[2]
               : userInputSearchLocation
           }
-          // value={locationChooseByUser?.label.slice(0, 40)}
           className="w-full h-full pt-6 pl-6 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
           type="text"
         />
-        {locationChooseByUser?.innerHTML ? (
+        {locationChooseByUser ? (
           <XCircleIcon
             onClick={deleteInputLocation}
             className="absolute w-6 rounded-full cursor-pointer dark:text-red dark:bg-c3 top-5 right-4 text-red d bg-c9 "
@@ -136,11 +132,17 @@ const LocDateBookiForm = () => {
               data.map((autocomplete: IautocompleteFromApi, index) => {
                 return (
                   <option
-                    // key={index}
-                    // label={autocomplete.label}
-                    // value={autocomplete.dest_type}
-                    // id={autocomplete.dest_id}
-                    // onClick={(e) => setlocationChooseByUser(e.target)}
+                    key={index}
+                    label={autocomplete.label}
+                    value={autocomplete.dest_type}
+                    id={autocomplete.dest_id}
+                    onClick={(e) =>
+                      setlocationChooseByUser([
+                        e.currentTarget.value,
+                        e.currentTarget.id,
+                        e.currentTarget.label,
+                      ])
+                    }
                     className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] z-50"
                   >
                     {autocomplete.label.slice(0, 50)}
