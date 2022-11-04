@@ -143,7 +143,7 @@ const LocDateBookiForm = () => {
               return (
                 <option
                   onClick={() => setlocationChooseByUser(destination)}
-                  className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] "
+                  className="hover:bg-c6 p-2 text-c4   bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] z-50 "
                 >
                   {destination.label}
                 </option>
