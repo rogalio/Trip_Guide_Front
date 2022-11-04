@@ -5,7 +5,8 @@ import axios from "axios";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
-import { log } from "console";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 import {
   addCheckIn,
   addCheckOut,
@@ -52,7 +53,7 @@ const LocDateBookiForm = () => {
     setlocationChooseByUser([]);
   };
 
-  const handleSearch = async (): Promise<void> => {
+  const handleAutoCompleteSearch = async (): Promise<void> => {
     if (userInputSearchLocation.length >= 3) {
       try {
         const response = await axios.get(
@@ -74,12 +75,22 @@ const LocDateBookiForm = () => {
     }
   };
 
+  const destinationChoose = [
+    data.map((autocomplete: IautocompleteFromApi) => {
+      return {
+        label: autocomplete.label,
+        dest_id: Number(autocomplete.dest_id),
+        dest_type: autocomplete.dest_type,
+      };
+    }),
+  ];
+
   const onSubmit = () => {
     dispatch(addCheckIn(userCheckIn));
     dispatch(addCheckOut(userCheckOut));
-    dispatch(addDestid(Number(locationChooseByUser[1])));
-    dispatch(addLocation(locationChooseByUser[2]));
-    dispatch(addDestType(locationChooseByUser[0]));
+    dispatch(addDestid(locationChooseByUser.dest_id));
+    dispatch(addLocation(locationChooseByUser.label));
+    dispatch(addDestType(locationChooseByUser.dest_type));
     navigate("/hotels/list");
   };
 
@@ -105,21 +116,21 @@ const LocDateBookiForm = () => {
           {...register("location", { required: true })}
           placeholder={" Where do you want to go ?"}
           value={
-            locationChooseByUser
-              ? locationChooseByUser[2]
+            locationChooseByUser?.label
+              ? locationChooseByUser.label
               : userInputSearchLocation
           }
           className="w-full h-full pt-6 pl-6 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
           type="text"
         />
-        {locationChooseByUser ? (
+        {locationChooseByUser?.label ? (
           <XCircleIcon
             onClick={deleteInputLocation}
             className="absolute w-6 rounded-full cursor-pointer dark:text-red dark:bg-c3 top-5 right-4 text-red d bg-c9 "
           />
         ) : (
           <button
-            onClick={handleSearch}
+            onClick={handleAutoCompleteSearch}
             className="absolute right-2.5 bottom-2.5 text-c8 dark:text-c8 bg-[#316bff] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Search
@@ -128,27 +139,16 @@ const LocDateBookiForm = () => {
 
         {showAutocomplete && (
           <div className=" flex  flex-col gap-2 z-50 absolute    mt-6 w-full  pt-6  px-4 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md ">
-            {data &&
-              data.map((autocomplete: IautocompleteFromApi, index) => {
-                return (
-                  <option
-                    key={index}
-                    label={autocomplete.label}
-                    value={autocomplete.dest_type}
-                    id={autocomplete.dest_id}
-                    onClick={(e) =>
-                      setlocationChooseByUser([
-                        e.currentTarget.value,
-                        e.currentTarget.id,
-                        e.currentTarget.label,
-                      ])
-                    }
-                    className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] z-50"
-                  >
-                    {autocomplete.label.slice(0, 50)}
-                  </option>
-                );
-              })}
+            {destinationChoose[0].map((destination: any) => {
+              return (
+                <option
+                  onClick={() => setlocationChooseByUser(destination)}
+                  className="hover:bg-c6 p-2  bg-[#F4F5F7] cursor-pointer dark:bg-c3 dark:hover:bg-c4 overflow-x-hidden dark:text-c7 border-c6 dark:border-c2 rounded-lg border-b-[1px] z-50"
+                >
+                  {destination.label}
+                </option>
+              );
+            })}
           </div>
         )}
       </div>
