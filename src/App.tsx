@@ -14,29 +14,33 @@ import { PersistGate } from "redux-persist/integration/react";
 import HotelBookResa from "./pages/HotelBookResa";
 import HotelBookConfirm from "./pages/HotelBookConfirm";
 import HotelBookSuccess from "./components/HotelBookSuccess";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
+  const queryClient = new QueryClient();
   let persistor = persistStore(store);
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Hotel />} />
-            <Route path="/flight" element={<Flight />} />
-            <Route path="/car" element={<Cars />} />
-            <Route path="/hotels/list" element={<HotelListing />} />
-            <Route path="/hotel/:id" element={<HotelDetail />} />
-            <Route path="/hotel/pay" element={<HotelBookResa />} />
-            <Route path="hotel/confirm" element={<HotelBookConfirm />} />
-            <Route
-              path="hotel/booking/success"
-              element={<HotelBookSuccess />}
-            />
-          </Routes>
-          <Footer />
-        </Router>
+        <QueryClientProvider client={queryClient}>
+          <Router>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Hotel />} />
+              <Route path="/flight" element={<Flight />} />
+              <Route path="/car" element={<Cars />} />
+              <Route path="/hotels/list" element={<HotelListing />} />
+              <Route path="/hotel/:id" element={<HotelDetail />} />
+              <Route path="/hotel/pay" element={<HotelBookResa />} />
+              <Route path="hotel/confirm" element={<HotelBookConfirm />} />
+              <Route
+                path="hotel/booking/success"
+                element={<HotelBookSuccess />}
+              />
+            </Routes>
+            <Footer />
+          </Router>
+        </QueryClientProvider>
       </PersistGate>
     </Provider>
   );
