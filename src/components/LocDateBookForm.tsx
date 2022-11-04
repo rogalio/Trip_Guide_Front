@@ -131,7 +131,7 @@ const LocDateBookiForm = () => {
         )}
 
         {showAutocomplete && (
-          <div className=" flex  flex-col gap-2 absolute mt-6 w-full  pt-6  px-4 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md ">
+          <div className=" flex  flex-col gap-2 z-50   mt-6 w-full  pt-6  px-4 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md ">
             {data &&
               data.map((autocomplete: IautocompleteFromApi, index) => {
                 return (
