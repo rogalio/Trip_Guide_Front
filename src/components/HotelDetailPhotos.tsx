@@ -2,30 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAppSelector } from "../redux/hooks";
 import { useQuery } from "@tanstack/react-query";
+import { fetchHotelPhotos } from "../util/axiosApiFetch";
 
 const HotelDetailPhotos = () => {
   const { hotelId } = useAppSelector((state) => state.user.value.hotelSearch);
 
-  const fetchHotelPhotos = async () => {
-    const response = await axios
-      .get(
-        `https://booking-com.p.rapidapi.com/v1/hotels/photos?locale=fr&hotel_id=${hotelId}`,
-        {
-          headers: {
-            "X-RapidAPI-Key":
-              "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
-            "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
-          },
-        }
-      )
-      .then((res) => res.data);
-
-    return response;
-  };
-
   const { isLoading, isError, data } = useQuery(
     ["HotelPhotos"],
-    () => fetchHotelPhotos(),
+    () => fetchHotelPhotos(hotelId),
     { refetchOnWindowFocus: false }
   );
 

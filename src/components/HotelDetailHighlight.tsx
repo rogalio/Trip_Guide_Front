@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAppSelector } from "../redux/hooks";
-import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { fetchHotelHighlight } from "../util/axiosApiFetch";
 
 const HotelDetailHighlight = () => {
   const { hotelId } = useAppSelector(
@@ -16,33 +17,21 @@ const HotelDetailHighlight = () => {
     hotelCountry,
   } = useAppSelector((state: any) => state.user.value.hotelSearch.hotelInfo);
 
-  const [hotelDescription, setHotelDescription] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { isLoading, isError, data } = useQuery(
+    ["HotelHighlight"],
+    () => fetchHotelHighlight(hotelId),
+    { refetchOnWindowFocus: false }
+  );
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://booking-com.p.rapidapi.com/v1/hotels/description?hotel_id=${hotelId}&locale=fr`,
-        {
-          headers: {
-            "X-RapidAPI-Key":
-              "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
-            "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
-          },
-        }
-      )
-      .then((response) => {
-        setHotelDescription(response.data.description);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [hotelId]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  return isLoading ? (
-    <p>is loading</p>
-  ) : (
+  if (isError) {
+    return <div>Error please refresh</div>;
+  }
+
+  return (
     <div className="max-w-5xl mx-auto mt-6 font-Poppins">
       <div className="flex items-center gap-2">
         <p className="bg-[#D5E1D6] p-1 text-[#38B245] font-base  text-sm rounded-lg shadow-sm px-2">
@@ -74,7 +63,7 @@ const HotelDetailHighlight = () => {
         <p className="text-base font-semibold text-c4v ">Description</p>
         <hr className="border-b-[1px] border-c6 mt-1 w-1/4" />
         <p className="mt-4 text-sm font-medium text-c4">
-          {hotelDescription.slice(0, 200)} ...
+          {data.description.slice(0, 200)} ...
         </p>
       </div>
     </div>

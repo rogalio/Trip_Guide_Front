@@ -1,16 +1,28 @@
 import React from "react";
 import { useGetHotelFacilitiesQuery } from "../redux/TopTourApi";
 import { useAppSelector } from "../redux/hooks";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { fetchHotelFacilities } from "../util/axiosApiFetch";
 
 const HotelDetailFacilities = () => {
-  const hotelSearch = useAppSelector((state) => state.user.value.hotelSearch);
-  const { data, error, isLoading } = useGetHotelFacilitiesQuery({
-    hotelId: hotelSearch.hotelId,
-  });
+  const { hotelId } = useAppSelector((state) => state.user.value.hotelSearch);
 
-  return isLoading ? (
-    <p>is loading </p>
-  ) : (
+  const { isLoading, isError, data } = useQuery(
+    ["HotelFacilities"],
+    () => fetchHotelFacilities(hotelId),
+    { refetchOnWindowFocus: false }
+  );
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error: please refresh</div>;
+  }
+
+  return (
     <div className="max-w-5xl mx-auto mt-6 font-DmSans">
       <p className="text-lg font-medium ">Hotel Features</p>
       <hr className="border-b-[1px] mt-1 mb-4 border-c6 m w-1/4" />

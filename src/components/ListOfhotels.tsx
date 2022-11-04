@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
-import { useGetHotelByCityQuery, destinationApi } from "../redux/TopTourApi";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { addHotelId, addHotelInfo } from "../redux/UserSlice";
 import { useNavigate } from "react-router-dom";
@@ -10,36 +9,17 @@ import StarIcon from "@mui/icons-material/Star";
 import WifiIcon from "@mui/icons-material/Wifi";
 import DoneIcon from "@mui/icons-material/Done";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
-import { useAxiosFetch } from "../customHooks/useAxiosFetch";
-
 import { useQuery } from "@tanstack/react-query";
+import { fetchHotelList } from "../util/axiosApiFetch";
 
 const ListOfhotels = () => {
   const { checkIn, checkOut, destId, destType, numOfGuests } = useAppSelector(
     (state) => state.user.value.hotelSearch
   );
 
-  const fetchHotellist = async () => {
-    const response = await axios
-      .get(
-        `https://booking-com.p.rapidapi.com/v1/hotels/search?checkout_date=${checkOut}&units=metric&dest_id=${destId}&dest_type=${destType}&locale=fr&adults_number=${numOfGuests}&order_by=class_descending&filter_by_currency=EUR&checkin_date=${checkIn}&room_number=1&page_number=0&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&include_adjacency=true`,
-        {
-          headers: {
-            "X-RapidAPI-Key":
-              "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
-            "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
-          },
-        }
-      )
-      .then((res) => res.data);
-    console.log(response);
-
-    return response;
-  };
-
-  const { isLoading, status, isError, data, error } = useQuery(
+  const { isLoading, isError, data } = useQuery(
     ["hotelList"],
-    () => fetchHotellist(),
+    () => fetchHotelList(checkIn, checkOut, destId, destType, numOfGuests),
     { refetchOnWindowFocus: false }
   );
 
@@ -67,6 +47,10 @@ const ListOfhotels = () => {
 
   if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>error, please refresh </div>;
   }
 
   return (

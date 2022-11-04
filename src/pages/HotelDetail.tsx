@@ -7,9 +7,6 @@ import HotelDetailHighlight from "../components/HotelDetailHighlight";
 import HotelDetailFacilities from "../components/HotelDetailFacilities";
 import HotelDetailRoomsAvailable from "../components/HotelDetailRoomsAvailable";
 
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-
 const HotelDetail = () => {
   const [displayRomm, setDisplayRoom] = useState(false);
 

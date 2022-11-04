@@ -1,40 +1,7 @@
 import React from "react";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
-// import { useGetHotelByCityQuery } from "../redux/TopTourApi";
 
 const TopTourCard = () => {
-  // typepescript interface of destId
-  interface DestId {
-    barcelona: number;
-    rioDeJaneiro: number;
-    elNido: number;
-    tokyo: number;
-  }
-
-  // const destId: DestId = {
-  //   barcelona: -372490,
-  //   rioDeJaneiro: -666610,
-  //   elNido: -2425520,
-  //   tokyo: -246227,
-  // };
-
-  // const test = useAppSelector((state) => state.user.value);
-  // console.log("test", test);
-
-  // const checkIn = "2022-10-10";
-  // const checkout = "2022-11-11";
-  // const destId = -372490;
-  // const numOfGuests = 2;
-
-  // const { data, error, isLoading } = useGetHotelByCityQuery({
-  //   checkIn,
-  //   checkout,
-  //   destId,
-  //   numOfGuests,
-  // });
-
-  // console.log(data, error, isLoading);
-
   return (
     <div className="flex flex-col justify-center max-w-5xl mt-10 ml-8 mr-8 md:mx-auto md:pb-8 md:px-6 ">
       <div className="text-center ">

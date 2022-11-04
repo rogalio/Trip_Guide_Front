@@ -27,7 +27,6 @@ const LocDateBookiForm = () => {
     dest_type: string;
   }
 
-  // const user = useAppSelector((state) => state.user.value.hotelSearch);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -62,7 +61,7 @@ const LocDateBookiForm = () => {
           {
             headers: {
               "X-RapidAPI-Key":
-                "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
+                "aec368893amsh7b6d0c9bd38cc53p182f12jsn1ac8d7d9a368",
               "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
             },
           }
@@ -70,7 +69,6 @@ const LocDateBookiForm = () => {
         const data = await response.data;
         setdata(data);
         setshowAutocomplete(true);
-        console.log(data);
       } catch (error: any) {
         console.log(error.response);
       }
@@ -83,8 +81,6 @@ const LocDateBookiForm = () => {
     dispatch(addDestid(userInputSearchLocationRef));
     dispatch(addLocation(locationChooseByUser.label));
     dispatch(addDestType(userInputSearchLocationDestType));
-    // console.log(user);
-
     navigate("/hotels/list");
   };
 
