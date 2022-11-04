@@ -52,11 +52,12 @@ const ListOfhotels = () => {
   if (isError) {
     return <div>error, please refresh </div>;
   }
+  console.log(data.result);
 
   return (
     <div className="mx-6 md:w-2/3 font-DmSans">
       <div className="flex flex-col gap-4 ">
-        {data?.result.map((hotel: any) => {
+        {data.result.map((hotel: any) => {
           return (
             <div key={hotel?.block_ids[0]} className="shadow-2xl rounded-xl">
               <img
@@ -126,4 +127,4 @@ const ListOfhotels = () => {
   );
 };
 
-export default React.memo(ListOfhotels);
+export default ListOfhotels;
