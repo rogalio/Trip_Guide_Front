@@ -10,6 +10,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { log } from "console";
 import { addPaymentId } from "../redux/UserSlice";
+import HotelReviewInfo from "./HotelReviewInfo";
 
 const HotelBookPay = () => {
   const user = useAppSelector((state) => state.user.value);
@@ -47,31 +48,40 @@ const HotelBookPay = () => {
   console.log(user);
 
   return (
-    <div className="font-DmSans">
-      <h2>Credit Cards</h2>
+    <div className="md:w-1/2 font-DmSans">
+      <div className="hidden md:block">
+        <HotelReviewInfo />
+      </div>
 
-      <div className="flex gap-1">
+      <h2 className="mt-4 mb-2 text-xl font-medium md:mb-4 text-c1 dark:text-c6">
+        Credit Cards
+      </h2>
+
+      <div className="flex gap-1 mb-4">
         <img
-          className=" w-20 h-10 px-2 object-contain border-[1px] rounded-lg border-c6 "
+          className=" w-20 h-10 px-2 object-contain border-[1px] rounded-lg border-c6 dark:bg-c6 "
           src={visa}
           alt="visa"
         />
         <img
-          className="object-contain w-20 h-10 py-1 px-3 border-[1px] rounded-lg border-c6"
+          className="object-contain w-20 h-10 py-1 px-3 border-[1px] rounded-lg border-c6 dark:bg-c6"
           src={mastercard}
           alt=""
         />
         <img
-          className="object-contain w-20 h-10 px-3 border-[1px] rounded-lg border-c6"
+          className="object-contain w-20 h-10 px-3 border-[1px] rounded-lg border-c6 dark:bg-c6"
           src={paypal}
           alt=""
         />
         <img
-          className="object-contain w-20 h-10 px-3 border-[1px] rounded-lg border-c6"
+          className="object-contain w-20 h-10 px-3 border-[1px] rounded-lg border-c6 dark:bg-c6"
           src={amex}
           alt=""
         />
       </div>
+      <h2 className="mt-4 mb-2 text-lg font-medium md:mb-2 text-c1 dark:text-c6 ">
+        Mettre une serie de "42" pour carte de test
+      </h2>
 
       <div>
         {stripePromise && clientSecret && (

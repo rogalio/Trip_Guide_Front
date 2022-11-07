@@ -2,14 +2,14 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import HotelBookPay from "../components/HotelBookPay";
 import HotelBookReview from "../components/HotelBookReview";
-import { useAppDispatch } from "../redux/hooks";
-import { addRoomSelected } from "../redux/UserSlice";
 
 const HotelBookResa = () => {
   return (
-    <div className="flex flex-col-reverse mx-8">
-      <HotelBookPay />
-      <HotelBookReview />
+    <div className="md:pt-6 dark:bg-c1">
+      <div className="flex flex-col-reverse justify-between max-w-5xl px-8 mx-auto md:flex-row md:gap-10 dark:bg-c1">
+        <HotelBookPay />
+        <HotelBookReview />
+      </div>
     </div>
   );
 };

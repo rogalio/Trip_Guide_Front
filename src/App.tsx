@@ -17,8 +17,19 @@ import HotelBookSuccess from "./components/HotelBookSuccess";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        cacheTime: 10 * 60 * 1000,
+        retry: 2,
+        retryDelay: 2000,
+      },
+    },
+  });
+
   let persistor = persistStore(store);
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

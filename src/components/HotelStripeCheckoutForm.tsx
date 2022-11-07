@@ -40,7 +40,7 @@ const HotelStripeCheckoutForm = () => {
     <form onSubmit={handleSubmit}>
       <PaymentElement />
       <button
-        className="flex w-full mt-4 rounded-ld "
+        className="flex w-full mt-4 rounded-ld"
         disabled={isProcessing || !stripe || !elements}
       >
         <span className=" bg-[#316BFF] text-c9 p-4 w-full rounded-lg  font-bold text-base">

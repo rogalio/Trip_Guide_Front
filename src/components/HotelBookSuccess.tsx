@@ -1,5 +1,4 @@
 import StarIcon from "@mui/icons-material/Star";
-import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { resetState } from "../redux/UserSlice";

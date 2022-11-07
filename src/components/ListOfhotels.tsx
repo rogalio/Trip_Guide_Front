@@ -52,73 +52,83 @@ const ListOfhotels = () => {
   if (isError) {
     return <div>error, please refresh </div>;
   }
+  console.log(checkIn, checkOut, destId, destType, numOfGuests);
   console.log(data.result);
 
   return (
-    <div className="mx-6 md:w-2/3 font-DmSans">
+    <div className="mx-6 font-DmSans">
       <div className="flex flex-col gap-4 ">
-        {data.result.map((hotel: any) => {
+        {data?.result?.map((hotel: any) => {
           return (
-            <div key={hotel?.block_ids[0]} className="shadow-2xl rounded-xl">
+            <div
+              key={hotel?.block_ids[0]}
+              className="shadow-2xl rounded-xl dark:border-c3 dark:border-[1px] flex flex-col md:flex-row "
+            >
               <img
                 src={hotel.max_photo_url}
                 alt="hotelImg"
-                className="object-cover w-full rounded-t-lg h-[280px]"
+                className="object-cover w-full rounded-t-lg h-[280px] md:w-1/3"
               />
-              <div className="flex flex-col gap-2 p-4">
-                <p className="text-2xl font-bold dark:text-c8">
-                  {hotel.hotel_name_trans}
-                </p>
-                <div className="flex items-center gap-2 ">
-                  <StarIcon className="text-[#FFC542]" />
-                  <p className="text-lg font-medium text-c3 dark:text-c5 ">
-                    {hotel.review_score}, ({hotel.review_nr})
+              {/* test */}
+              <div className="md:w-full">
+                <div className="flex flex-col gap-2 p-4 ">
+                  <p className="text-2xl font-bold dark:text-c8">
+                    {hotel.hotel_name_trans}
                   </p>
-                </div>
-
-                <div className="flex items-center gap-2 font-medium dark:text-c5">
-                  <TourIcon className="text-c4" />
-                  <p>
-                    {hotel.distance_to_cc_formatted}, from {hotel.city_trans}{" "}
-                  </p>
-                </div>
-
-                <div className="flex flex-col gap-2 dark:text-c5">
-                  <div className="flex items-center gap-2 font-medium">
-                    <PlaceIcon className="text-c4" />
-                    <p>{hotel.address_trans}</p>
-                  </div>
-                  <div className="flex items-center gap-2 font-medium">
-                    <WifiIcon className="text-c4" />
-                    <p>Free wifi available</p>
+                  <div className="flex items-center gap-2 ">
+                    <StarIcon className="text-[#FFC542]" />
+                    <p className="text-lg font-medium text-c3 dark:text-c5 ">
+                      {hotel.review_score}, ({hotel.review_nr})
+                    </p>
                   </div>
 
-                  {hotel.is_free_cancellable && (
-                    <div className="flex items-center gap-2 font-medium dark:text-c5">
-                      <DoneIcon className="text-c4" />
-                      <p>Free cancelation</p>
+                  <div className="flex items-center gap-2 font-medium dark:text-c5">
+                    <TourIcon className="text-c4" />
+                    <p>
+                      {hotel.distance_to_cc} km, from {hotel.city_trans}{" "}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col gap-2 dark:text-c5">
+                    <div className="flex items-center gap-2 font-medium">
+                      <PlaceIcon className="text-c4" />
+                      <p>{hotel.address_trans}</p>
                     </div>
-                  )}
-                  {hotel.is_genius_dea && (
-                    <div className="flex items-center gap-2 font-medium dark:text-c5">
-                      <LocalAtmIcon className="text-c4" />
-                      <p>Genius Deal</p>
+
+                    <div className="flex items-center gap-2 font-medium">
+                      <WifiIcon className="text-c4" />
+                      <p>Free wifi available</p>
                     </div>
-                  )}
-                </div>
-                <div className="flex items-center justify-between pl-2 font-bold">
-                  <p className="text-c4 dark:text-c5">
-                    {hotel.price_breakdown.gross_price} €
-                  </p>
-                  <button
-                    value={hotel.hotel_id}
-                    onClick={(e) => handleHotelClick(hotel, e)}
-                    className="bg-[#316BFF] p-2 px-4 rounded-full text-c9"
-                  >
-                    Book now
-                  </button>
+
+                    {hotel.is_free_cancellable && (
+                      <div className="flex items-center gap-2 font-medium dark:text-c5">
+                        <DoneIcon className="text-c4" />
+                        <p>Free cancelation</p>
+                      </div>
+                    )}
+                    {hotel.is_genius_dea && (
+                      <div className="flex items-center gap-2 font-medium dark:text-c5">
+                        <LocalAtmIcon className="text-c4" />
+                        <p>Genius Deal</p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between pl-2 font-bold ">
+                    <p className="text-c4 dark:text-c5">
+                      {hotel.price_breakdown.gross_price} €
+                    </p>
+                    <button
+                      value={hotel.hotel_id}
+                      onClick={(e) => handleHotelClick(hotel, e)}
+                      className="bg-[#316BFF] p-2 px-4 rounded-full text-c9"
+                    >
+                      Book now
+                    </button>
+                  </div>
                 </div>
               </div>
+
+              {/* test */}
             </div>
           );
         })}
