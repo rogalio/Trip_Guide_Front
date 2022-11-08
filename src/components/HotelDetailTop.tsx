@@ -1,7 +1,7 @@
 import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import FlagIcon from "@mui/icons-material/Flag";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { useAppSelector } from "../redux/hooks";
 
 const Test1 = () => {
   const user = useAppSelector((state) => state.user.value);

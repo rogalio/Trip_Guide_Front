@@ -1,9 +1,6 @@
-import React from "react";
-import Logo from "../assets/logo.png";
-
 const Footer = () => {
   return (
-    <div className="sticky dark:bg-c1">
+    <div className="bottom-0 dark:bg-c1">
       <div className="flex justify-between max-w-5xl pt-16 pb-8 mx-auto ml-8 mr-8 l md:pt-14 md:pb-10 dark:md:bg-c1 font-DmSans md:mx-auto md:flex-row md:justify-around ">
         <div className="flex flex-col mb-4 ">
           <h2 className="pb-2 text-xl font-semibold dark:text-c9 ">Services</h2>

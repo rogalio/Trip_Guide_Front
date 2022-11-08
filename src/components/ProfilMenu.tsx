@@ -59,19 +59,6 @@ const ProfilMenu = () => {
               ml: -0.5,
               mr: 1,
             },
-
-            // "&:before": {
-            //   content: '""',
-            //   display: "block",
-            //   position: "absolute",
-            //   top: 0,
-            //   right: 14,
-            //   width: 10,
-            //   height: 10,
-            //   bgcolor: "background.paper",
-            //   transform: "translateY(-50%) rotate(45deg)",
-            //   zIndex: 0,
-            // },
           },
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
@@ -80,37 +67,37 @@ const ProfilMenu = () => {
         <div className="flex flex-col ">
           <MenuItem className="flex gap-4 hover:bg-c7 rounded-2xl dark:hover:bg-c3">
             <UserCircleIcon className="h-6 text-c4 dark:text-c5" />
-            <p className="text-c2 dark:text-c7 font-DmSans text-base">
+            <p className="text-base text-c2 dark:text-c7 font-DmSans">
               My Profile
             </p>
           </MenuItem>
-          <MenuItem className="flex gap-4  hover:bg-c7 rounded-2xl dark:hover:bg-c3">
+          <MenuItem className="flex gap-4 hover:bg-c7 rounded-2xl dark:hover:bg-c3">
             <UserIcon className="h-6 text-c4 dark:text-c5" />
-            <p className="text-c2 dark:text-c7 font-DmSans text-base">
+            <p className="text-base text-c2 dark:text-c7 font-DmSans">
               Manage account
             </p>
           </MenuItem>
-          <MenuItem className="flex gap-4  hover:bg-c7 rounded-2xl dark:hover:bg-c3">
+          <MenuItem className="flex gap-4 hover:bg-c7 rounded-2xl dark:hover:bg-c3">
             <BookOpenIcon className="h-6 text-c4 dark:text-c5" />
-            <p className="text-c2 dark:text-c7 font-DmSans text-base">
+            <p className="text-base text-c2 dark:text-c7 font-DmSans">
               Booking
             </p>
           </MenuItem>
-          <MenuItem className="flex gap-4  hover:bg-c7 rounded-2xl dark:hover:bg-c3">
+          <MenuItem className="flex gap-4 hover:bg-c7 rounded-2xl dark:hover:bg-c3">
             <WalletIcon className="h-6 text-c4 dark:text-c5" />
-            <p className="text-c2 dark:text-c7 font-DmSans text-base">
+            <p className="text-base text-c2 dark:text-c7 font-DmSans">
               My wallet
             </p>
           </MenuItem>
-          <MenuItem className="flex gap-4  hover:bg-c7 rounded-2xl dark:hover:bg-c3">
+          <MenuItem className="flex gap-4 hover:bg-c7 rounded-2xl dark:hover:bg-c3">
             <TagIcon className="h-6 text-c4 dark:text-c5" />
-            <p className="text-c2 dark:text-c7 font-DmSans text-base">
+            <p className="text-base text-c2 dark:text-c7 font-DmSans">
               My Rewards
             </p>
           </MenuItem>
-          <MenuItem className="flex gap-4  hover:bg-c7 rounded-2xl dark:hover:bg-c3">
+          <MenuItem className="flex gap-4 hover:bg-c7 rounded-2xl dark:hover:bg-c3">
             <ArrowLeftOnRectangleIcon className="h-6 text-c4 dark:text-c5" />
-            <p className="text-c2 dark:text-c7 font-DmSans text-base">
+            <p className="text-base text-c2 dark:text-c7 font-DmSans">
               Sign out
             </p>
           </MenuItem>

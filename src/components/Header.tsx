@@ -4,13 +4,13 @@ import ProfilMenu from "./ProfilMenu";
 import Notifications from "./Notifications";
 import ChooseCurrency from "./ChooseCurrency";
 import SwitchTheme from "./SwitchTheme";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { useAppDispatch } from "../redux/hooks";
 import { resetState } from "../redux/UserSlice";
 
 const Header = () => {
   const dispatch = useAppDispatch();
 
-  const ResetReduxStore = () => {
+  const ResetReduxStore = (): void => {
     dispatch(resetState());
   };
 

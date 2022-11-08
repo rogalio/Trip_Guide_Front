@@ -28,7 +28,7 @@ const HotelBookReview = () => {
 
   dispatch(addPayment(TotalNightWithFee));
   return (
-    <div className="md:w-1/2 font-DmSans dark:bg-c3 dark:rounded-lg">
+    <div className=" md:w-1/2 font-DmSans dark:bg-c3 dark:rounded-lg">
       <div className="md:hidden">
         <HotelReviewInfo />
       </div>

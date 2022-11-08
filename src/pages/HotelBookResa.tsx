@@ -1,5 +1,3 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
 import HotelBookPay from "../components/HotelBookPay";
 import HotelBookReview from "../components/HotelBookReview";
 

@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 import LocalHotelOutlinedIcon from "@mui/icons-material/LocalHotelOutlined";
 import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined";
 import DirectionsCarRoundedIcon from "@mui/icons-material/DirectionsCarRounded";
-import LocDateBookiForm from "./LocDateBookForm";
+import LocDateBookiForm from "./LocDateBookFormFlight";
 
 const TabsBooking = () => {
   const navigate = useNavigate();
 
   const navigateHotel = () => {
+    setValue(0);
     navigate("/");
   };
 
@@ -21,7 +22,7 @@ const TabsBooking = () => {
   const navigateCar = () => {
     navigate("/car");
   };
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

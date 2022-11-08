@@ -1,4 +1,3 @@
-import React from "react";
 import Batu from "../asset/batu.png";
 import Kuta from "../asset/kuta.png";
 

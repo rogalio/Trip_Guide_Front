@@ -69,7 +69,7 @@ const ListOfhotels = () => {
                 alt="hotelImg"
                 className="object-cover w-full rounded-t-lg h-[280px] md:w-1/3"
               />
-              {/* test */}
+
               <div className="md:w-full">
                 <div className="flex flex-col gap-2 p-4 ">
                   <p className="text-2xl font-bold dark:text-c8">
@@ -127,8 +127,6 @@ const ListOfhotels = () => {
                   </div>
                 </div>
               </div>
-
-              {/* test */}
             </div>
           );
         })}

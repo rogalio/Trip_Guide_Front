@@ -1,5 +1,4 @@
-import React from "react";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { useAppSelector } from "../redux/hooks";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const HotelReviewInfo = () => {

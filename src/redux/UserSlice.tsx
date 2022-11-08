@@ -1,47 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../redux/store";
-
-// Define a type for the roomSelected state
-interface RoomSelected {
-  amountPerNight: number;
-  amountWithTax: number;
-  amountTotal: number;
-  roomName: string;
-}
-
-// Define a type for the hotelInfo state
-interface HotelInfo {
-  hotelName: string;
-  hotelReviewScore: number;
-  hotelReviewScoreWord: string;
-  hotelReviewNr: number;
-  hotelCity: string;
-  hotelCountry: string;
-  hotelAccommodationType: string;
-  hotelUnitConfiguration: string;
-  hotelCancellation: number;
-  hotelImg: string;
-}
-
-// Define a type for the slice state
-interface HotelState {
-  value: {
-    hotelSearch: {
-      location: string;
-      destId: number;
-      destType: string;
-      checkIn: string;
-      checkOut: string;
-      numOfGuests: number;
-      hotelId: string;
-      hotelInfo: HotelInfo;
-      roomSelected: RoomSelected;
-      payment: number;
-      paymentId: string;
-    };
-  };
-}
+import { RoomSelected, HotelInfo, HotelState } from "../util/Typescript";
 
 // Define the initial state using that type
 const initialState: HotelState = {

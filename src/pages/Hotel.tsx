@@ -1,6 +1,4 @@
-import React from "react";
 import DestinationCard from "../components/DestinationCard";
-
 import Hero from "../components/HeroHotel";
 import TopTourCard from "../components/TopTourCard";
 

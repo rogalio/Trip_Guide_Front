@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import visa from "../asset/visa.png";
 import mastercard from "../asset/mastercard.png";
 import paypal from "../asset/paypal.png";
@@ -8,7 +8,6 @@ import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { log } from "console";
 import { addPaymentId } from "../redux/UserSlice";
 import HotelReviewInfo from "./HotelReviewInfo";
 
@@ -39,21 +38,19 @@ const HotelBookPay = () => {
       });
 
       setClientSecret(data.clientSecret);
+      dispatch(addPaymentId(clientSecret));
       console.log(clientSecret, "client secret");
     };
     getStripeSecretKey();
   }, []);
 
-  dispatch(addPaymentId(clientSecret));
-  console.log(user);
-
   return (
-    <div className="md:w-1/2 font-DmSans">
+    <div className=" md:w-1/2 font-DmSans">
       <div className="hidden md:block">
         <HotelReviewInfo />
       </div>
 
-      <h2 className="mt-4 mb-2 text-xl font-medium md:mb-4 text-c1 dark:text-c6">
+      <h2 className="mt-4 mb-2 text-xl font-medium md:mb-4 text-c4 dark:text-c6">
         Credit Cards
       </h2>
 

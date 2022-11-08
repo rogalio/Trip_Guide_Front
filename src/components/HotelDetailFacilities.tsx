@@ -1,7 +1,4 @@
-import React from "react";
-import { useGetHotelFacilitiesQuery } from "../redux/TopTourApi";
 import { useAppSelector } from "../redux/hooks";
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { fetchHotelFacilities } from "../util/axiosApiFetch";
 

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// Hotel Search API
+
 export const fetchHotelList = async (
   checkIn: string,
   checkOut: string,
@@ -89,6 +91,25 @@ export const fetchHotelRoomsAvailable = async (
           "X-RapidAPI-Key":
             "aec368893amsh7b6d0c9bd38cc53p182f12jsn1ac8d7d9a368",
           "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
+        },
+      }
+    )
+    .then((res) => res.data);
+
+  return response;
+};
+
+// Flight Request API
+
+export const fetchAutocompleteWhere = async (Where: string): Promise<any> => {
+  const response = await axios
+    .get(
+      `https://priceline-com-provider.p.rapidapi.com/v2/flight/autoComplete?string=${Where}&cities=true&airports=true&regions=true&hotels=true`,
+      {
+        headers: {
+          "X-RapidAPI-Key":
+            "aec368893amsh7b6d0c9bd38cc53p182f12jsn1ac8d7d9a368",
+          "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com",
         },
       }
     )

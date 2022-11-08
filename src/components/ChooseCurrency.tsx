@@ -1,13 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import { Avatar, Divider } from "@mui/material";
+import { Divider } from "@mui/material";
 
 const ChooseCurrency = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -15,7 +13,7 @@ const ChooseCurrency = () => {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (): void => {
     setAnchorEl(null);
   };
   return (
@@ -31,7 +29,7 @@ const ChooseCurrency = () => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <p className=" text-sm text-c2 font-semibold dark:text-c6">USD</p>
+            <p className="text-sm font-semibold  text-c2 dark:text-c6">USD</p>
           </IconButton>
         </Tooltip>
       </Box>
@@ -60,11 +58,11 @@ const ChooseCurrency = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <div className="flex flex-col ml-6 md:ml-2 relative ">
+        <div className="relative flex flex-col ml-6 md:ml-2 ">
           <MenuItem className="flex gap-4 hover:c4 dark:hover:bg-c3 rounded-xl ">
-            <button className="flex gap-4 justify-around font-DmSans">
+            <button className="flex justify-around gap-4 font-DmSans">
               <p className="text-c2 dark:text-c7">USD</p>
-              <p className="text-c4 dark:text-c5 font-DmSans text-base">
+              <p className="text-base text-c4 dark:text-c5 font-DmSans">
                 (US Dollar)
               </p>
               <CheckCircleIcon className="w-6 absolute right-2 hover:text-[#145CE6]" />
@@ -74,7 +72,7 @@ const ChooseCurrency = () => {
           <MenuItem className="flex gap-4 hover:c4 dark:hover:bg-c3 rounded-xl">
             <button className="flex gap-4 font-DmSans">
               <p className=" text-c2 dark:text-c6">GBP</p>
-              <p className="text-c4 dark:text-c5 font-DmSans text-base">
+              <p className="text-base text-c4 dark:text-c5 font-DmSans">
                 (British Pounds)
               </p>
               <CheckCircleIcon className="w-6  absolute right-2 hover:text-[#145CE6]" />

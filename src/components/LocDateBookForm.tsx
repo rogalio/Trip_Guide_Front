@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { XCircleIcon } from "@heroicons/react/24/outline";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { useAppDispatch } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
 import {
   addCheckIn,
   addCheckOut,

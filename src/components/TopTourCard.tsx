@@ -1,5 +1,4 @@
 import React from "react";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
 
 const TopTourCard = () => {
   return (
@@ -78,8 +77,3 @@ const TopTourCard = () => {
 };
 
 export default TopTourCard;
-
-const t =
-  "https://booking-com.p.rapidapi.com/v1/hotels/search?checkout_date=2022-10-01&units=metric&dest_id=-553173&dest_type=city&locale=en-gb&adults_number=2&order_by=popularity&filter_by_currency=AED&checkin_date=2022-09-30&room_number=1&children_number=2&page_number=0&children_ages=5%2C0&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&include_adjacency=true";
-const i =
-  "https://booking-com.p.rapidapi.com/v1/hotels/search?checkout_date=${checkout}&units=metric&dest_id=${destId}&dest_type=city&locale=fr&adults_number=${numOfGuests}&order_by=class_descending&filter_by_currency=EUR&checkin_date=${checkIn}&room_number=1&children_number=0&page_number=0&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&include_adjacency=true";
