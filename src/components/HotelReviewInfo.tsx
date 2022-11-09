@@ -3,7 +3,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const HotelReviewInfo = () => {
   const { checkIn, checkOut, numOfGuests } = useAppSelector(
-    (state) => state.user.value.hotelSearch
+    (state) => state.hotel.value.hotelSearch
   );
 
   return (

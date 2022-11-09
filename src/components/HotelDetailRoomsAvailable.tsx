@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { addRoomSelected } from "../redux/UserSlice";
+import { addRoomSelected } from "../redux/HotelSlice";
 import DoneIcon from "@mui/icons-material/Done";
 import { useQuery } from "@tanstack/react-query";
 import { fetchHotelRoomsAvailable } from "../util/axiosApiFetch";
 
 const HotelDetailRoomsAvailable = () => {
   const { checkIn, checkOut, numOfGuests, hotelId } = useAppSelector(
-    (state) => state.user.value.hotelSearch
+    (state) => state.hotel.value.hotelSearch
   );
 
   const { isLoading, isError, data } = useQuery(

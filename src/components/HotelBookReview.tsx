@@ -1,18 +1,18 @@
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { addPayment } from "../redux/UserSlice";
+import { addPayment } from "../redux/HotelSlice";
 import StarIcon from "@mui/icons-material/Star";
 import HotelReviewInfo from "./HotelReviewInfo";
 
 const HotelBookReview = () => {
   const { checkIn, checkOut } = useAppSelector(
-    (state) => state.user.value.hotelSearch
+    (state) => state.hotel.value.hotelSearch
   );
 
   const { hotelName, hotelReviewScore, hotelReviewNr, hotelImg } =
-    useAppSelector((state) => state.user.value.hotelSearch.hotelInfo);
+    useAppSelector((state) => state.hotel.value.hotelSearch.hotelInfo);
 
   const { amountPerNight, amountWithTax } = useAppSelector(
-    (state) => state.user.value.hotelSearch.roomSelected
+    (state) => state.hotel.value.hotelSearch.roomSelected
   );
 
   const dispatch = useAppDispatch();

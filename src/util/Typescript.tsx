@@ -1,4 +1,5 @@
-// define the type of RoomSelected
+// Hotel TS
+
 export interface RoomSelected {
   amountPerNight: number;
   amountWithTax: number;
@@ -6,7 +7,6 @@ export interface RoomSelected {
   roomName: string;
 }
 
-// Define a type for the hotelInfo state
 export interface HotelInfo {
   hotelName: string;
   hotelReviewScore: number;
@@ -42,3 +42,14 @@ export type destinationFromType = {
   iata: string;
   airport: string;
 };
+
+export interface FlightState {
+  value: {
+    flightSearch: {
+      checkIn: string;
+      checkOut: string;
+      whereIata: string;
+      toIata: string;
+    };
+  };
+}

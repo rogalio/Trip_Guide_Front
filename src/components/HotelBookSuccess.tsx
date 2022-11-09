@@ -1,6 +1,6 @@
 import StarIcon from "@mui/icons-material/Star";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { resetState } from "../redux/UserSlice";
+import { resetState } from "../redux/HotelSlice";
 import RecentActorsIcon from "@mui/icons-material/RecentActors";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
@@ -10,7 +10,7 @@ import HotelReviewInfo from "./HotelReviewInfo";
 
 const HotelBookSuccess = () => {
   const { checkIn, checkOut, payment, paymentId } = useAppSelector(
-    (state: any) => state.user.value.hotelSearch
+    (state: any) => state.hotel.value.hotelSearch
   );
   const {
     hotelName,
@@ -18,7 +18,7 @@ const HotelBookSuccess = () => {
     hotelReviewNr,
     hotelUnitConfiguration,
     hotelImg,
-  } = useAppSelector((state: any) => state.user.value.hotelSearch.hotelInfo);
+  } = useAppSelector((state: any) => state.hotel.value.hotelSearch.hotelInfo);
   const dispatch = useAppDispatch();
 
   const resetReduxStore = () => {

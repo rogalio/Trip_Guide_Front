@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchHotelFacilities } from "../util/axiosApiFetch";
 
 const HotelDetailFacilities = () => {
-  const { hotelId } = useAppSelector((state) => state.user.value.hotelSearch);
+  const { hotelId } = useAppSelector((state) => state.hotel.value.hotelSearch);
 
   const { isLoading, isError, data } = useQuery(
     ["HotelFacilities"],

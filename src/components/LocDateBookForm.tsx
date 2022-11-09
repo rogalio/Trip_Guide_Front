@@ -11,7 +11,7 @@ import {
   addDestid,
   addLocation,
   addDestType,
-} from "../redux/UserSlice";
+} from "../redux/HotelSlice";
 
 const LocDateBookiForm = () => {
   const {

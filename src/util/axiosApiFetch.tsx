@@ -95,16 +95,19 @@ export const fetchHotelRoomsAvailable = async (
       }
     )
     .then((res) => res.data);
-
   return response;
 };
 
 // Flight Request API
 
-export const fetchAutocompleteWhere = async (Where: string): Promise<any> => {
+export const fetchFlightDeparture = async (
+  checkIn: string,
+  whereIata: string,
+  toIata: string
+): Promise<any> => {
   const response = await axios
     .get(
-      `https://priceline-com-provider.p.rapidapi.com/v2/flight/autoComplete?string=${Where}&cities=true&airports=true&regions=true&hotels=true`,
+      `https://priceline-com-provider.p.rapidapi.com/v2/flight/departures?sid=iSiX639&departure_date=${checkIn}&adults=1&origin_airport_code=${whereIata}&destination_airport_code=${toIata}`,
       {
         headers: {
           "X-RapidAPI-Key":
@@ -113,7 +116,6 @@ export const fetchAutocompleteWhere = async (Where: string): Promise<any> => {
         },
       }
     )
-    .then((res) => res.data);
-
+    .then((res) => res.data.getAirFlightDepartures.results.result);
   return response;
 };

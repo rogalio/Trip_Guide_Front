@@ -4,7 +4,7 @@ import FlagIcon from "@mui/icons-material/Flag";
 import { useAppSelector } from "../redux/hooks";
 
 const Test1 = () => {
-  const user = useAppSelector((state) => state.user.value);
+  const user = useAppSelector((state) => state.hotel.value);
 
   return (
     <div className="max-w-5xl mx-auto mt-6 font-Poppins md:pt-10 ">

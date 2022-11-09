@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../redux/store";
+import type { RootState } from "./store";
 import { RoomSelected, HotelInfo, HotelState } from "../util/Typescript";
 
 // Define the initial state using that type
@@ -38,7 +38,7 @@ const initialState: HotelState = {
   },
 };
 
-export const userSlice = createSlice({
+export const hotelSlice = createSlice({
   name: "user",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
@@ -108,9 +108,9 @@ export const {
   addPayment,
   addPaymentId,
   resetState,
-} = userSlice.actions;
+} = hotelSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.user.value;
+export const selectCount = (state: RootState) => state.hotel.value;
 
-export default userSlice.reducer;
+export default hotelSlice.reducer;

@@ -8,11 +8,11 @@ import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { addPaymentId } from "../redux/UserSlice";
+import { addPaymentId } from "../redux/HotelSlice";
 import HotelReviewInfo from "./HotelReviewInfo";
 
 const HotelBookPay = () => {
-  const user = useAppSelector((state) => state.user.value);
+  const user = useAppSelector((state) => state.hotel.value);
   const dispatch = useAppDispatch();
 
   const [stripePromise, setStripePromise] = useState<any>(null);

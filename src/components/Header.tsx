@@ -5,7 +5,7 @@ import Notifications from "./Notifications";
 import ChooseCurrency from "./ChooseCurrency";
 import SwitchTheme from "./SwitchTheme";
 import { useAppDispatch } from "../redux/hooks";
-import { resetState } from "../redux/UserSlice";
+import { resetState } from "../redux/HotelSlice";
 
 const Header = () => {
   const dispatch = useAppDispatch();

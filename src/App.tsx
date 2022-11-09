@@ -15,6 +15,7 @@ import HotelBookResa from "./pages/HotelBookResa";
 import HotelBookConfirm from "./pages/HotelBookConfirm";
 import HotelBookSuccess from "./components/HotelBookSuccess";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import FflightListing from "./pages/FflightListing";
 
 function App() {
   const queryClient = new QueryClient({
@@ -38,7 +39,6 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Hotel />} />
-              <Route path="/flight" element={<Flight />} />
               <Route path="/car" element={<Cars />} />
               <Route path="/hotels/list" element={<HotelListing />} />
               <Route path="/hotel/:id" element={<HotelDetail />} />
@@ -48,6 +48,8 @@ function App() {
                 path="hotel/booking/success"
                 element={<HotelBookSuccess />}
               />
+              <Route path="/flight" element={<Flight />} />
+              <Route path="/flight/listing" element={<FflightListing />} />
             </Routes>
             <Footer />
           </Router>

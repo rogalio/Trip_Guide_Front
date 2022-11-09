@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "../redux/UserSlice";
+import rootReducer from "./HotelSlice";
+import flightReducer from "./FlightSlice";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { destinationApi } from "../redux/TopTourApi";
 // redux persist
@@ -22,7 +23,8 @@ const persistConfig = {
 };
 
 const reducer = combineReducers({
-  user: rootReducer,
+  hotel: rootReducer,
+  flight: flightReducer,
   [destinationApi.reducerPath]: destinationApi.reducer,
 });
 

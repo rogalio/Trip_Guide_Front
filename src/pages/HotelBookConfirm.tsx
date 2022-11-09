@@ -8,12 +8,12 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 
 const HotelBookConfirm = () => {
   const { checkIn, checkOut, numOfGuests } = useAppSelector(
-    (state) => state.user.value.hotelSearch
+    (state) => state.hotel.value.hotelSearch
   );
   const { hotelName, hotelReviewScore, hotelReviewNr, hotelImg } =
-    useAppSelector((state) => state.user.value.hotelSearch.hotelInfo);
+    useAppSelector((state) => state.hotel.value.hotelSearch.hotelInfo);
   const { roomName, amountTotal } = useAppSelector(
-    (state) => state.user.value.hotelSearch.roomSelected
+    (state) => state.hotel.value.hotelSearch.roomSelected
   );
 
   return (

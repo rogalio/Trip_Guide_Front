@@ -4,7 +4,7 @@ import { fetchHotelHighlight } from "../util/axiosApiFetch";
 
 const HotelDetailHighlight = () => {
   const { hotelId } = useAppSelector(
-    (state: any) => state.user.value.hotelSearch
+    (state: any) => state.hotel.value.hotelSearch
   );
   const {
     hotelReviewScore,
@@ -14,7 +14,7 @@ const HotelDetailHighlight = () => {
     hotelUnitConfiguration,
     hotelCity,
     hotelCountry,
-  } = useAppSelector((state: any) => state.user.value.hotelSearch.hotelInfo);
+  } = useAppSelector((state: any) => state.hotel.value.hotelSearch.hotelInfo);
 
   const { isLoading, isError, data } = useQuery(
     ["HotelHighlight"],

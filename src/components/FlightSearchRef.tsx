@@ -5,13 +5,17 @@ import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
 import { destinationFromType } from "../util/Typescript";
 import axios from "axios";
 
-const FlightSearchRef = ({ watch, errors, register }: any) => {
+const FlightSearchRef = ({
+  watch,
+  errors,
+  register,
+  locationFromChooseByUser,
+  locationToChooseByUser,
+  setlocationFromChooseByUser,
+  setlocationToChooseByUser,
+}: any) => {
   const [showAutocomplete, setshowAutocomplete] = useState<boolean>(false);
   const [showAutocomplete2, setshowAutocomplete2] = useState<boolean>(false);
-
-  const [locationFromChooseByUser, setlocationFromChooseByUser] =
-    useState<any>();
-  const [locationToChooseByUser, setlocationToChooseByUser] = useState<any>();
 
   const [from, setfrom] = useState<any>([]);
   const [to, setto] = useState<any>([]);
@@ -90,8 +94,8 @@ const FlightSearchRef = ({ watch, errors, register }: any) => {
     .map((key) => to[key])
     .map((item) => {
       return {
-        iata: item?.iata,
-        airport: item?.airport,
+        iata: item.iata,
+        airport: item.airport,
       };
     });
 

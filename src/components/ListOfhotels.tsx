@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { addHotelId, addHotelInfo } from "../redux/UserSlice";
+import { addHotelId, addHotelInfo } from "../redux/HotelSlice";
 import { useNavigate } from "react-router-dom";
 import TourIcon from "@mui/icons-material/Tour";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -14,7 +14,7 @@ import { fetchHotelList } from "../util/axiosApiFetch";
 
 const ListOfhotels = () => {
   const { checkIn, checkOut, destId, destType, numOfGuests } = useAppSelector(
-    (state) => state.user.value.hotelSearch
+    (state) => state.hotel.value.hotelSearch
   );
 
   const { isLoading, isError, data } = useQuery(
