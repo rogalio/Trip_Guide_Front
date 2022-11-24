@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
-import { FlightState } from "../util/Typescript";
+import { FlightState, CompanyType, InfoType } from "../util/Typescript";
+import { log } from "console";
 
 // Define the initial state using that type
 const initialState: FlightState = {
@@ -11,6 +12,25 @@ const initialState: FlightState = {
       checkOut: "",
       whereIata: "",
       toIata: "",
+    },
+    flightInfoDeparture: {
+      companyName: "",
+      logo: "",
+      aircraft: "",
+      // flightNumber: "",
+      // class: "",
+      // duration: "",
+      // departureCity: "",
+      // departureAirport: "",
+      // departureTime: "",
+      // departureDate: "",
+      // arrivalAirport: "",
+      // arrivalTime: "",
+      // arrivalDate: "",
+      // arrivalCity: "",
+      // baggage: "",
+      // cabin: "",
+      // meal: "",
     },
   },
 };
@@ -30,16 +50,34 @@ export const flightSlice = createSlice({
     },
     // create a reducer that add where
     addWhere: (state, action: PayloadAction<string>) => {
+      console.log(action.payload);
       state.value.flightSearch.whereIata = action.payload;
     },
     // create a reducer that add to
     addTo: (state, action: PayloadAction<string>) => {
+      console.log(action.payload);
       state.value.flightSearch.toIata = action.payload;
     },
+    // create a reducer that add flightInfoDeparture.company
+    addFlightInfoDepartureCompany: (state, action: PayloadAction<InfoType>) => {
+      state.value.flightInfoDeparture = action.payload;
+    },
+
+    // // create a reducer that add flightInfoDeparture.info
+    // addFlightInfoDepartureInfo: (state, action: PayloadAction<InfoType>) => {
+    //   state.value.flightInfoDeparture.info = action.payload;
+    // },
   },
 });
 
-export const { addCheckIn, addCheckOut, addWhere, addTo } = flightSlice.actions;
+export const {
+  addCheckIn,
+  addCheckOut,
+  addWhere,
+  addTo,
+  addFlightInfoDepartureCompany,
+  // addFlightInfoDepartureInfo,
+} = flightSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.flight.value;

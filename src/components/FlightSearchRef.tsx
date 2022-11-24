@@ -51,14 +51,15 @@ const FlightSearchRef = ({
       {
         headers: {
           "X-RapidAPI-Key":
-            "aec368893amsh7b6d0c9bd38cc53p182f12jsn1ac8d7d9a368",
+            "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
           "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com",
         },
       }
     );
 
     setfrom(
-      response.data.getAirAutoComplete.results.getSolr.results.data.airport_data
+      response.data?.getAirAutoComplete.results.getSolr.results.data
+        .airport_data
     );
     setshowAutocomplete(true);
   };
@@ -69,14 +70,15 @@ const FlightSearchRef = ({
       {
         headers: {
           "X-RapidAPI-Key":
-            "aec368893amsh7b6d0c9bd38cc53p182f12jsn1ac8d7d9a368",
+            "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
           "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com",
         },
       }
     );
 
     setto(
-      response.data.getAirAutoComplete.results.getSolr.results.data.airport_data
+      response.data?.getAirAutoComplete.results.getSolr.results.data
+        .airport_data
     );
     setshowAutocomplete2(true);
   };

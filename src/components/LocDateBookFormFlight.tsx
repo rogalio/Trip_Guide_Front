@@ -29,7 +29,7 @@ const LocDateBookiForm = () => {
     dispatch(addCheckOut(checkOut));
     dispatch(addWhere(locationFromChooseByUser.iata));
     dispatch(addTo(locationToChooseByUser.iata));
-    navigate("/flight/listing");
+    navigate("/flight/departure");
   };
 
   return (

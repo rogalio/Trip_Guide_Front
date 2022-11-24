@@ -43,6 +43,38 @@ export type destinationFromType = {
   airport: string;
 };
 
+export interface CompanyType {
+  companyName: string;
+  logo: string;
+  aircraft: string;
+}
+
+export type InfoType = {
+  companyName: string;
+  logo: string;
+  aircraft: string;
+  // flightNumber: string;
+  // class: string;
+  // duration: string;
+  // departureCity: string;
+  // departureAirport: string;
+  // departureTime: string;
+  // departureDate: string;
+  // arrivalAirport: string;
+  // arrivalTime: string;
+  // arrivalDate: string;
+  // arrivalCity: string;
+  // baggage: string;
+  // cabin: string;
+  // meal: string;
+};
+
+export type flightInfoType = {
+  name: string;
+  // company: CompanyType;
+  info: InfoType;
+};
+
 export interface FlightState {
   value: {
     flightSearch: {
@@ -51,5 +83,6 @@ export interface FlightState {
       whereIata: string;
       toIata: string;
     };
+    flightInfoDeparture: InfoType;
   };
 }

@@ -111,7 +111,27 @@ export const fetchFlightDeparture = async (
       {
         headers: {
           "X-RapidAPI-Key":
-            "aec368893amsh7b6d0c9bd38cc53p182f12jsn1ac8d7d9a368",
+            "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
+          "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com",
+        },
+      }
+    )
+    .then((res) => res.data.getAirFlightDepartures.results.result);
+  return response;
+};
+
+export const fetchFlightReturn = async (
+  checkOut: string,
+  whereIata: string,
+  toIata: string
+): Promise<any> => {
+  const response = await axios
+    .get(
+      `https://priceline-com-provider.p.rapidapi.com/v2/flight/departures?sid=iSiX639&departure_date=${checkOut}&adults=1&origin_airport_code=${toIata}&destination_airport_code=${whereIata}`,
+      {
+        headers: {
+          "X-RapidAPI-Key":
+            "fab384f000mshbf3bf66224e58e8p1e170djsn81db59e88085",
           "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com",
         },
       }
