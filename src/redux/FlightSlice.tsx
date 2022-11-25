@@ -17,20 +17,43 @@ const initialState: FlightState = {
       companyName: "",
       logo: "",
       aircraft: "",
-      // flightNumber: "",
-      // class: "",
-      // duration: "",
-      // departureCity: "",
-      // departureAirport: "",
-      // departureTime: "",
-      // departureDate: "",
-      // arrivalAirport: "",
-      // arrivalTime: "",
-      // arrivalDate: "",
-      // arrivalCity: "",
-      // baggage: "",
-      // cabin: "",
-      // meal: "",
+      flightNumber: "",
+      class: "",
+      duration: "",
+      departureCity: "",
+      departureAirport: "",
+      departureAirportName: "",
+      departureTime: "",
+      departureDate: "",
+      departureDateString: "",
+      arrivalAirport: "",
+      arrivalAirportName: "",
+      arrivalTime: "",
+      arrivalDate: "",
+      arrivalDateString: "",
+      arrivalCity: "",
+      stop: 0,
+    },
+    flightInfoReturn: {
+      companyName: "",
+      logo: "",
+      aircraft: "",
+      flightNumber: "",
+      class: "",
+      duration: "",
+      departureCity: "",
+      departureAirport: "",
+      departureAirportName: "",
+      departureTime: "",
+      departureDate: "",
+      departureDateString: "",
+      arrivalAirport: "",
+      arrivalAirportName: "",
+      arrivalTime: "",
+      arrivalDate: "",
+      arrivalDateString: "",
+      arrivalCity: "",
+      stop: 0,
     },
   },
 };
@@ -50,23 +73,21 @@ export const flightSlice = createSlice({
     },
     // create a reducer that add where
     addWhere: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
       state.value.flightSearch.whereIata = action.payload;
     },
     // create a reducer that add to
     addTo: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
       state.value.flightSearch.toIata = action.payload;
     },
     // create a reducer that add flightInfoDeparture.company
-    addFlightInfoDepartureCompany: (state, action: PayloadAction<InfoType>) => {
+    addFlightInfoDeparture: (state, action: PayloadAction<InfoType>) => {
       state.value.flightInfoDeparture = action.payload;
     },
 
-    // // create a reducer that add flightInfoDeparture.info
-    // addFlightInfoDepartureInfo: (state, action: PayloadAction<InfoType>) => {
-    //   state.value.flightInfoDeparture.info = action.payload;
-    // },
+    // create a reducer that add flightInfoReturn.company
+    addFlightInfoReturn: (state, action: PayloadAction<InfoType>) => {
+      state.value.flightInfoReturn = action.payload;
+    },
   },
 });
 
@@ -75,8 +96,8 @@ export const {
   addCheckOut,
   addWhere,
   addTo,
-  addFlightInfoDepartureCompany,
-  // addFlightInfoDepartureInfo,
+  addFlightInfoDeparture,
+  addFlightInfoReturn,
 } = flightSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

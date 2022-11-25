@@ -35,39 +35,35 @@ const FlightListingReturn = () => {
       <div className="justify-center max-w-5xl mx-auto font-DmSans bg-c8 dark:bg-c1">
         {Object.values(data?.itinerary_data)
           .slice(0, 15)
-          .map((flight: any) => {
-            // console.log(
-            //   Object.values(flight.slice_data).map((info: any) => info),
-            //   "flight"
-            // );
-            // console.log(flight, "flight");
-
+          .map((flight: any, index: number) => {
             return (
-              <div>
-                {Object.values(flight.slice_data).map((info: any) => {
-                  return (
-                    <div className="flex ">
-                      <div className="flex flex-col gap-2 rounded-lg md:hover:scale-95 md:transition-350 border-[1px] p-1 border-c7 w-full mx-2 bg-c9 mt-4 shadow-md dark:bg-c2 dark:border-c2 ">
-                        <div className="flex items-center justify-between gap-4 ">
-                          <img
-                            className="object-cover w-12 h-12 p-1 dark:rounded-full"
-                            src={info.airline.logo}
-                            alt=""
-                          />
-                          <FlightListingStep info={info} />
-                          <div className="hidden md:flex md:w-[45%] ">
+              <div key={index}>
+                {Object.values(flight.slice_data).map(
+                  (info: any, index: number) => {
+                    return (
+                      <div key={index} className="flex ">
+                        <div className="flex flex-col gap-2 rounded-lg md:hover:scale-95 md:transition-350 border-[1px] p-1 border-c7 w-full mx-2 bg-c9 mt-4 shadow-md dark:bg-c2 dark:border-c2 ">
+                          <div className="flex items-center justify-between gap-4 ">
+                            <img
+                              className="object-cover w-12 h-12 p-1 dark:rounded-full"
+                              src={info.airline.logo}
+                              alt=""
+                            />
+                            <FlightListingStep info={info} />
+                            <div className="hidden md:flex md:w-[45%] ">
+                              <FlightListingTIme info={info} />
+                            </div>
+
+                            <FlightListingBookBtn flight={flight} info={info} />
+                          </div>
+                          <div className="flex: md:hidden ">
                             <FlightListingTIme info={info} />
                           </div>
-
-                          <FlightListingBookBtn flight={flight} info={info} />
-                        </div>
-                        <div className="flex: md:hidden ">
-                          <FlightListingTIme info={info} />
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  }
+                )}
               </div>
             );
           })}

@@ -1,37 +1,40 @@
 import React from "react";
 import { useAppDispatch } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
-import { addFlightInfoDepartureCompany } from "../redux/FlightSlice";
-import { CompanyType } from "../util/Typescript";
+import { addFlightInfoReturn } from "../redux/FlightSlice";
+import { InfoType } from "../util/Typescript";
 
 const FlightListingBookBtn2 = ({ flight, info }: any) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  // const company: CompanyType = {
-  //   name: flight.slice_data.slice_0.airline.name,
-  //   logo: flight.slice_data.slice_0.airline.logo,
-  //   aircraft: flight.slice_data.slice_0.flight_data?.flight_0.info.aircraft,
-  // };
-
-  const handleBookFlight = () => {
-    // console.log(flight, "flightInbutton");
-    console.log(
-      flight.slice_data.slice_0.airline.name,
-      flight.slice_data.slice_0.airline.logo,
-      flight.slice_data.slice_0.flight_data.flight_0.info.aircraft
-    );
-
-    // dispatch(addFlightInfoDepartureCompany(company));
-
-    // dispatch(addFlightInfoDepartureInfo({
-    //   flightNumber: flight.slice_data.slice_0.flight_data.flight_0.flight_number,
-    // }))
-    // navigate("/flight/return");
+  const flightInfo: InfoType = {
+    companyName: flight.slice_data.slice_0.airline.name,
+    logo: flight.slice_data.slice_0.airline.logo,
+    aircraft: flight.slice_data.slice_0.flight_data.flight_0.info.aircraft,
+    flightNumber: flight.slice_data.slice_0.flight_data.flight_0.info.brand_id,
+    class: flight.slice_data.slice_0.flight_data.flight_0.info.cabin_name,
+    duration: info.info.duration.slice(3, 8).split(":").join("h"),
+    departureCity: info.departure.airport.city,
+    departureAirport: info.departure.airport.code,
+    departureAirportName: info.departure.airport.name,
+    departureTime: info.departure.datetime.time_24h,
+    departureDate: info.departure.datetime.date,
+    arrivalAirport: info.arrival.airport.code,
+    arrivalAirportName: info.arrival.airport.name,
+    arrivalTime: info.arrival.datetime.time_24h,
+    arrivalDate: info.arrival.datetime.date,
+    arrivalCity: info.arrival.airport.city,
+    stop: info.info.connection_count,
+    departureDateString:
+      flight.slice_data.slice_0.departure.datetime.date_display,
+    arrivalDateString: flight.slice_data.slice_0.arrival.datetime.date_display,
   };
 
-  // console.log(info, "btn2");
-  // console.log(flight, "flightbtn2");
+  const handleBookFlight = () => {
+    dispatch(addFlightInfoReturn(flightInfo));
+    navigate("/flight/review");
+  };
 
   return (
     <div className="flex items-center gap-4 md:mr-4 dark:text-c6 ">

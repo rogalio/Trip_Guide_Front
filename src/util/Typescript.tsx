@@ -53,26 +53,22 @@ export type InfoType = {
   companyName: string;
   logo: string;
   aircraft: string;
-  // flightNumber: string;
-  // class: string;
-  // duration: string;
-  // departureCity: string;
-  // departureAirport: string;
-  // departureTime: string;
-  // departureDate: string;
-  // arrivalAirport: string;
-  // arrivalTime: string;
-  // arrivalDate: string;
-  // arrivalCity: string;
-  // baggage: string;
-  // cabin: string;
-  // meal: string;
-};
-
-export type flightInfoType = {
-  name: string;
-  // company: CompanyType;
-  info: InfoType;
+  flightNumber: string;
+  class: string;
+  duration: string;
+  departureCity: string;
+  departureAirport: string;
+  departureAirportName: string;
+  departureTime: string;
+  departureDate: string;
+  departureDateString: string;
+  arrivalAirport: string;
+  arrivalAirportName: string;
+  arrivalTime: string;
+  arrivalDate: string;
+  arrivalDateString: string;
+  arrivalCity: string;
+  stop: number;
 };
 
 export interface FlightState {
@@ -84,5 +80,6 @@ export interface FlightState {
       toIata: string;
     };
     flightInfoDeparture: InfoType;
+    flightInfoReturn: InfoType;
   };
 }

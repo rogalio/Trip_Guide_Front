@@ -46,16 +46,10 @@ const FflightListing = () => {
 
   return (
     <div className="dark:bg-c1">
-      <div className="justify-center max-w-5xl mx-auto font-DmSans bg-c8 dark:bg-c1">
+      <div className="justify-center max-w-5xl mx-auto font-DmSans dark:bg-c1">
         {Object.values(data?.itinerary_data)
           .slice(0, 15)
           .map((flight: any) => {
-            // console.log(
-            //   Object.values(flight.slice_data).map((info: any) => info),
-            //   "flight"
-            // );
-            // console.log(flight, "flight");
-
             return (
               <div>
                 {Object.values(flight.slice_data).map((info: any) => {
@@ -73,18 +67,7 @@ const FflightListing = () => {
                             <FlightListingTIme info={info} />
                           </div>
 
-                          <FlightListingBookBtn
-                            flight={flight}
-                            info={info}
-                            company={{
-                              companyName:
-                                flight.slice_data.slice_0.airline.name,
-                              logo: flight.slice_data.slice_0.airline.logo,
-                              aircraft:
-                                flight.slice_data.slice_0.flight_data.flight_0
-                                  .info.aircraft,
-                            }}
-                          />
+                          <FlightListingBookBtn flight={flight} info={info} />
                         </div>
                         <div className="flex: md:hidden ">
                           <FlightListingTIme info={info} />
