@@ -3,6 +3,7 @@ import { useAppDispatch } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
 import { addFlightInfoReturn } from "../redux/FlightSlice";
 import { InfoType } from "../util/Typescript";
+import { log } from "console";
 
 const FlightListingBookBtn2 = ({ flight, info }: any) => {
   const navigate = useNavigate();
@@ -29,9 +30,14 @@ const FlightListingBookBtn2 = ({ flight, info }: any) => {
     departureDateString:
       flight.slice_data.slice_0.departure.datetime.date_display,
     arrivalDateString: flight.slice_data.slice_0.arrival.datetime.date_display,
+    priceBase: flight.price_details.source_base_fare,
+    priceTax: flight.price_details.source_taxes_and_fees,
+    priceTotal: flight.price_details.source_total_fare_per_ticket,
   };
 
   const handleBookFlight = () => {
+    console.log(info);
+
     dispatch(addFlightInfoReturn(flightInfo));
     navigate("/flight/review");
   };

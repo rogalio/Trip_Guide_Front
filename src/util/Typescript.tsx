@@ -69,6 +69,9 @@ export type InfoType = {
   arrivalDateString: string;
   arrivalCity: string;
   stop: number;
+  priceBase: number;
+  priceTax: number;
+  priceTotal: number;
 };
 
 export interface FlightState {
@@ -83,3 +86,13 @@ export interface FlightState {
     flightInfoReturn: InfoType;
   };
 }
+
+export type PropsInfoHead = {
+  departureCity: string;
+  arrivalCity: string;
+  stop: number;
+  duration: string;
+  cabin: string;
+  departureDate: string;
+  departureDateString: string;
+};

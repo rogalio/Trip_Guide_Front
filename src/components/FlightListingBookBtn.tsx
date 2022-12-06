@@ -29,12 +29,17 @@ const FlightListingBookBtn = ({ flight, info }: any) => {
     departureDateString:
       flight.slice_data.slice_0.departure.datetime.date_display,
     arrivalDateString: flight.slice_data.slice_0.arrival.datetime.date_display,
+    priceBase: flight.price_details.source_base_fare,
+    priceTax: flight.price_details.source_taxes_and_fees,
+    priceTotal: flight.price_details.source_total_fare_per_ticket,
   };
 
   const handleBookFlight = () => {
     dispatch(addFlightInfoDeparture(flightInfo));
     navigate("/flight/return");
   };
+
+  console.log(flight, "flight");
 
   return (
     <div className="flex items-center gap-4 md:mr-4 dark:text-c6 ">

@@ -1,4 +1,5 @@
 import React from "react";
+import { PropsInfoHead } from "../util/Typescript";
 
 const FlightBookingInfoHead = ({
   departureCity,
@@ -8,14 +9,14 @@ const FlightBookingInfoHead = ({
   cabin,
   departureDate,
   departureDateString,
-}: any) => {
+}: PropsInfoHead) => {
   return (
     <div>
       <h1 className="mb-2 text-xl font-medium text-c2 dark:text-c8">
         {departureCity} to {arrivalCity}
       </h1>
       <div className="flex gap-2 text-sm md:gap-2 text-c4 dark:text-c5">
-        {stop >= 2 ? <p> {stop - 1} Stop</p> : <p>Non stop</p>}
+        {stop >= 1 ? <p> {stop} Stop</p> : <p>Non stop</p>}
         <p>|</p>
         <p>{duration}</p>
         <p>|</p>

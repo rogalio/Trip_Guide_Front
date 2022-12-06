@@ -33,6 +33,9 @@ const initialState: FlightState = {
       arrivalDateString: "",
       arrivalCity: "",
       stop: 0,
+      priceBase: 0,
+      priceTax: 0,
+      priceTotal: 0,
     },
     flightInfoReturn: {
       companyName: "",
@@ -54,6 +57,9 @@ const initialState: FlightState = {
       arrivalDateString: "",
       arrivalCity: "",
       stop: 0,
+      priceBase: 0,
+      priceTax: 0,
+      priceTotal: 0,
     },
   },
 };

@@ -6,15 +6,15 @@ import AirlinesIcon from "@mui/icons-material/Airlines";
 const FlightListingTIme = ({ info }: any) => {
   return (
     <div className="flex gap-4 my-2 ">
-      {info.info.connection_count >= 2 ? (
+      {info.info.connection_count >= 1 ? (
         <div className="flex items-center gap-2 text-c4 dark:text-c5">
           <AirlineStopsIcon className="text-sm " />
           <p className="font-medium text-c3 dark:text-c5">
-            {info.info.connection_count - 1} escales
+            {info.info.connection_count} stop
           </p>
         </div>
       ) : (
-        <p className="font-medium text-c3 dark:text-c5">Sans escale</p>
+        <p className="font-medium text-c3 dark:text-c5">non stop</p>
       )}
       <div className="flex items-center gap-2 text-c4 dark:text-c5">
         <HourglassEmptyIcon className="text-sm" />
