@@ -33,7 +33,10 @@ const LocDateBookiForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mx-6 mt-6 md:space-y-4 ">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="mx-6 mt-6  md:space-y-4"
+    >
       <FlightSearchRef
         errors={errors}
         register={register}

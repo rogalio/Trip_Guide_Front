@@ -1,6 +1,7 @@
 import React from "react";
 import hero from "../asset/heroFlight.png";
 import TabsBooking from "./TabsBookingFlight";
+import { LoginModal } from "../util/LoginModal";
 
 const Hero = () => {
   return (

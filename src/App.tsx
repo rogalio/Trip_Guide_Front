@@ -18,6 +18,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import FlightDeparture from "./pages/FflightListingGo";
 import FlightReturn from "./pages/FlightListingReturn";
 import FlightBookingReview from "./pages/FlightBookingReview";
+import FlightBookConfirm from "./pages/FlightBookConfirm";
+import GoogleLogin from "./pages/GoogleLogin";
 
 function App() {
   const queryClient = new QueryClient({
@@ -54,6 +56,11 @@ function App() {
               <Route path="/flight/departure" element={<FlightDeparture />} />
               <Route path="/flight/return" element={<FlightReturn />} />
               <Route path="/flight/review" element={<FlightBookingReview />} />
+              <Route path="/flight/confirm" element={<FlightBookConfirm />} />
+              <Route
+                path="http://localhost:4000/auth/google"
+                element={<GoogleLogin />}
+              />
             </Routes>
             <Footer />
           </Router>

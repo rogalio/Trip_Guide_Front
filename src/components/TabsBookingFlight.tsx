@@ -6,6 +6,7 @@ import LocalHotelOutlinedIcon from "@mui/icons-material/LocalHotelOutlined";
 import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined";
 import DirectionsCarRoundedIcon from "@mui/icons-material/DirectionsCarRounded";
 import LocDateBookiForm from "./LocDateBookFormFlight";
+import { LoginModal } from "../util/LoginModal";
 
 const TabsBooking = () => {
   const navigate = useNavigate();
@@ -30,6 +31,9 @@ const TabsBooking = () => {
 
   return (
     <div className="  bg-c8 dark:bg-c2 sticky mt-[-180px]  rounded-xl md:mt-[-100px] md:ml-14 md:mr-14 max-w-5xl mx-auto ml-8 mr-8 shadow-xl pb-6 ">
+      <div className="relative">
+        <LoginModal />
+      </div>
       <Tabs
         value={value}
         onChange={handleChange}

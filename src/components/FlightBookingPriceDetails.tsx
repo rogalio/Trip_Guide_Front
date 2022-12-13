@@ -17,8 +17,6 @@ const FlightBookingPriceDetails = () => {
   const serviceFee: number = Math.trunc(totalBase * 0.05);
   const total: number = totaltax + totalBase + serviceFee;
 
-  console.log(priceBase, priceBaseReturn);
-
   return (
     <div className="mt-8 border-[1px] border-c7 rounded-xl p-4 shadow-lg font-DmSans dark:bg-c2 dark:border-c3 mx-6 lg:mx-0">
       <div className="flex flex-col gap-2 text-sm font-medium dark:text-c8">
