@@ -1,8 +1,8 @@
-import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
-const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
+const RegisterFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
   const {
     register,
     handleSubmit,
@@ -17,10 +17,9 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
 
   const onSubmit = (): void => {
     axios
-      .post("http://localhost:4000/login", {
+      .post("http://localhost:4000/register", {
         username: email,
         password: password,
-
         withCredentials: true,
       })
       .then((response) => {
@@ -34,13 +33,13 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col w-full gap-2 "
+      className="flex flex-col w-full gap-2"
     >
       <div>
         <p className=" text-c3 dark:text-c8">Email adress</p>
         <input
           {...register("email", { required: true })}
-          className="w-full p-1 rounded-lg bg-c6 dark:bg-c2 placeholder:text-sm"
+          className="w-full p-1 rounded-lg bg-c6 placeholder:text-sm dark:bg-c2"
           type="email"
           placeholder="Entrez votre email"
         />
@@ -60,20 +59,19 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
         type="submit"
         className="bg-[#316BFF] rounded-md p-1  mx-full text-c8 mt-4 font-medium "
       >
-        Sign in
+        Sign Up
       </button>
-
       <p className="mx-auto mt-4 dark:text-c8">
-        Dont have an account ?
+        Have an account ?
         <span
-          onClick={() => setShowRegisterForm(true)}
+          onClick={() => setShowRegisterForm(false)}
           className="text-[#316BFF] font-medium cursor-pointer ml-4 "
         >
-          Sign up
+          Sign In
         </span>
       </p>
     </form>
   );
 };
 
-export default LoginFormEmail;
+export default RegisterFormEmail;

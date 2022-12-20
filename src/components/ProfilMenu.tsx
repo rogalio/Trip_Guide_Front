@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,7 +12,9 @@ import {
   UserCircleIcon,
   UserIcon,
   BookOpenIcon,
+  PowerIcon,
 } from "@heroicons/react/24/outline";
+import axios from "axios";
 
 const ProfilMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -22,6 +24,10 @@ const ProfilMenu = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const logout = async () => {
+    await axios.get("http://localhost:4000/logout");
   };
 
   return (
@@ -96,10 +102,12 @@ const ProfilMenu = () => {
             </p>
           </MenuItem>
           <MenuItem className="flex gap-4 hover:bg-c7 rounded-2xl dark:hover:bg-c3">
-            <ArrowLeftOnRectangleIcon className="h-6 text-c4 dark:text-c5" />
-            <p className="text-base text-c2 dark:text-c7 font-DmSans">
-              Sign out
-            </p>
+            <div className="flex gap-4" onClick={logout}>
+              <ArrowLeftOnRectangleIcon className="h-6 text-c4 dark:text-c5" />
+              <p className="text-base text-c2 dark:text-c7 font-DmSans">
+                Sign out
+              </p>
+            </div>
           </MenuItem>
         </div>
       </Menu>

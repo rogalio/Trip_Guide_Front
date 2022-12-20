@@ -62,15 +62,15 @@ const ListOfhotels = () => {
           return (
             <div
               key={hotel?.block_ids[0]}
-              className="shadow-2xl rounded-xl dark:border-c3 dark:border-[1px] flex flex-col md:flex-row "
+              className="shadow-2xl w-full rounded-xl dark:border-c3 dark:border-[1px] flex flex-col md:flex-row "
             >
               <img
                 src={hotel.max_photo_url}
                 alt="hotelImg"
-                className="object-cover w-full rounded-t-lg h-[280px] md:w-1/3"
+                className="object-cover w-full rounded-t-lg h-[280px] md:w-1/3 md:h-[280px]"
               />
 
-              <div className="md:w-full">
+              <div className="md:w-2/3">
                 <div className="flex flex-col gap-2 p-4 ">
                   <p className="text-2xl font-bold dark:text-c8">
                     {hotel.hotel_name_trans}

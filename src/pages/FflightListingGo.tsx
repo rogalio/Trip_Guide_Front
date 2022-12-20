@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAppSelector } from "../redux/hooks";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchFlightDeparture } from "../util/axiosApiFetch";
 import AirlineStopsIcon from "@mui/icons-material/AirlineStops";
 import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
@@ -9,33 +9,20 @@ import FlightListingStep from "../components/FlightListingStep";
 import AirlinesIcon from "@mui/icons-material/Airlines";
 import FlightListingTIme from "../components/FlightListingTIme";
 import FlightListingBookBtn from "../components/FlightListingBookBtn";
-import { log } from "console";
+import { fetchFlightReturn } from "../util/axiosApiFetch";
 
 const FflightListing = () => {
   const { checkIn, checkOut, whereIata, toIata } = useAppSelector(
     (state) => state.flight.value.flightSearch
   );
 
-  // const [dataFlight, setDataFlight] = useState<any>({});
-
-  const { isLoading, isError, data } = useQuery(
-    ["FlightListGo"],
-    () => fetchFlightDeparture(checkIn, whereIata, toIata),
-    {
-      refetchOnWindowFocus: false,
-      //  onSuccess: setDataFlight
-    }
+  const { isLoading, isError, data } = useQuery(["FlightListGo"], () =>
+    fetchFlightDeparture(checkIn, whereIata, toIata)
   );
 
-  // create a function to filter data from the api by price
-  const filterByPrice = () => {
-    const dataPriceToFilter = Object.values(data?.itinerary_data)
-      .slice(0, 50)
-      .map((item: any) => item)
-      .filter((item: any) => item.price_details.display_total_fare > 1500);
-
-    return dataPriceToFilter;
-  };
+  useQuery(["FlightListreturn"], () =>
+    fetchFlightReturn(checkOut, whereIata, toIata)
+  );
 
   if (isLoading) {
     return <div>Loading...</div>;

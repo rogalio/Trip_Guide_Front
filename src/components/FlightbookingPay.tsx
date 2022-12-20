@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import { Elements } from "@stripe/react-stripe-js";
-import FlightStripeCheckoutForm from "./FlightStripeCheckoutForm";
+import FlightStipeElement from "./FlightStipeElement";
 
 const FlightbookingPay = () => {
   const { priceBase, priceTax, priceTotal } = useAppSelector(
@@ -25,6 +24,8 @@ const FlightbookingPay = () => {
   const [stripePromise, setStripePromise] = useState<any>(null);
   const [clientSecret, setClientSecret] = useState<any>("");
 
+  // use usecallback to check if user is authenticated
+
   // fetch stripe public_key from server
   useEffect(() => {
     const getStripeKey = async () => {
@@ -38,27 +39,19 @@ const FlightbookingPay = () => {
   // fetch stripe secret_key from server
   useEffect(() => {
     const getStripeSecretKey = async () => {
-      const { data } = await axios.post("http://localhost:4000/hotel/pay", {
+      const { data } = await axios.post("http://localhost:4000/flight/pay", {
         amount: total,
       });
-
       setClientSecret(data.clientSecret);
-      // dispatch(addPaymentId(clientSecret));
-      console.log(clientSecret, "client secret");
     };
     getStripeSecretKey();
   }, []);
 
   return (
-    <div className="px-6 pt-8 dark:bg-c1 ">
-      <div className="max-w-5xl mx-auto border-[1px] border-c7 rounded-xl p-4 font-DmSans dark:bg-c2 dark:border-c3 shadow-lg">
-        {stripePromise && clientSecret && (
-          <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <FlightStripeCheckoutForm />
-          </Elements>
-        )}
-      </div>
-    </div>
+    <FlightStipeElement
+      stripePromise={stripePromise}
+      clientSecret={clientSecret}
+    />
   );
 };
 

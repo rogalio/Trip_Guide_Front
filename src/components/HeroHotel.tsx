@@ -4,7 +4,7 @@ import TabsBooking from "./TabsBookingHotel";
 
 const Hero = () => {
   return (
-    <div className="dark:bg-c1">
+    <div className=" dark:bg-c1">
       <div className="relative justify-center max-w-5xl mx-auto">
         <img
           className="h-[500px] object-cover object-center -z-50  "
