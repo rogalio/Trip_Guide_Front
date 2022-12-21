@@ -21,7 +21,7 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
         username: email,
         password: password,
         withCredentials: true,
-
+        sameSite: "none",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "http://localhost:4000",
@@ -30,7 +30,6 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
             "Content-Type, Authorization, Content-Length, X-Requested-With",
           "Access-Control-Allow-Credentials": "true",
           "Access-Control-Allow-Private-Network": "true",
-          sameSite: "none",
         },
       })
       .then((response) => {
