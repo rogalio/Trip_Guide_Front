@@ -21,9 +21,8 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
         password: password,
         withCredentials: true,
         headers: {
-          "Content-Type": "application/json",
-          accept: "application/json",
-          "Access-Control-Allow-Credentials": true,
+          credentials: "include",
+          "Access-Control-Allow-Origin": true,
         },
       })
       .then((response) => {
