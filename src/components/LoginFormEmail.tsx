@@ -25,6 +25,12 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
       headers: {
         "Content-Type": "application/json",
       },
+    }).then((response) => {
+      if (response.status === 200) {
+        setShowModal(false);
+      } else {
+        console.log("error");
+      }
     });
 
     // axios
