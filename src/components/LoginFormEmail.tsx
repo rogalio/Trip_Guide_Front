@@ -16,7 +16,7 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost/4000/login", {
+      .post("http://localhost:4000/login", {
         username: email,
         password: password,
       })
