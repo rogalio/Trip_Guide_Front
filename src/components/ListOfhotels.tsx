@@ -18,7 +18,7 @@ const ListOfhotels = () => {
   );
 
   const { isLoading, isError, data } = useQuery(
-    ["hotelList"],
+    ["hotelList", destId],
     () => fetchHotelList(checkIn, checkOut, destId, destType, numOfGuests),
     { refetchOnWindowFocus: false }
   );
@@ -52,8 +52,6 @@ const ListOfhotels = () => {
   if (isError) {
     return <div>error, please refresh </div>;
   }
-  console.log(checkIn, checkOut, destId, destType, numOfGuests);
-  console.log(data.result);
 
   return (
     <div className="mx-6 font-DmSans">

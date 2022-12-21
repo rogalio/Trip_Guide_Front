@@ -6,7 +6,7 @@ const HotelDetailFacilities = () => {
   const { hotelId } = useAppSelector((state) => state.hotel.value.hotelSearch);
 
   const { isLoading, isError, data } = useQuery(
-    ["HotelFacilities"],
+    ["HotelFacilities", hotelId],
     () => fetchHotelFacilities(hotelId),
     { refetchOnWindowFocus: false }
   );

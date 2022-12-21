@@ -5,10 +5,8 @@ import { fetchHotelPhotos } from "../util/axiosApiFetch";
 const HotelDetailPhotos = () => {
   const { hotelId } = useAppSelector((state) => state.hotel.value.hotelSearch);
 
-  const { isLoading, isError, data } = useQuery(
-    ["HotelPhotos"],
-    () => fetchHotelPhotos(hotelId),
-    { refetchOnWindowFocus: false }
+  const { isLoading, isError, data } = useQuery(["HotelPhotos", hotelId], () =>
+    fetchHotelPhotos(hotelId)
   );
 
   if (isLoading) {

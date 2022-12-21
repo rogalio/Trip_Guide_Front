@@ -25,7 +25,11 @@ const FflightListing = () => {
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="justify-center max-w-5xl mx-auto font-DmSans dark:bg-c1">
+        Loading...
+      </div>
+    );
   }
 
   if (isError) {
@@ -33,7 +37,7 @@ const FflightListing = () => {
   }
 
   return (
-    <div className="dark:bg-c1">
+    <div className=" dark:bg-c1">
       <div className="justify-center max-w-5xl mx-auto font-DmSans dark:bg-c1">
         {Object.values(data?.itinerary_data)
           .slice(0, 15)

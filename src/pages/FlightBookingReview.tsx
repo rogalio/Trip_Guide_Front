@@ -6,7 +6,7 @@ import FlightBookingUserInfo from "../components/FlightBookingUserInfo";
 
 const FlightBookingReview = () => {
   return (
-    <div className="dark:bg-c1">
+    <div className="h-full dark:bg-c1">
       <div className="flex flex-col max-w-5xl mx-auto dark:bg-c1 lg:flex-row">
         <div className="lg:w-3/4">
           <FlightBookingInfo />

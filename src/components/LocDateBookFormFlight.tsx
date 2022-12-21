@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
 import FlightSearchRef from "./FlightSearchRef";
 import { useAppDispatch } from "../redux/hooks";
@@ -24,6 +25,9 @@ const LocDateBookiForm = () => {
   const checkIn: string = watch("checkIn");
   const checkOut: string = watch("checkOut");
 
+  const queryClient = useQueryClient();
+  queryClient.invalidateQueries();
+
   const onSubmit = () => {
     dispatch(addCheckIn(checkIn));
     dispatch(addCheckOut(checkOut));
@@ -33,10 +37,7 @@ const LocDateBookiForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mx-6 mt-6  md:space-y-4"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="mx-6 mt-6 md:space-y-4">
       <FlightSearchRef
         errors={errors}
         register={register}

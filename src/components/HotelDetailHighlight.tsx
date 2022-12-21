@@ -17,7 +17,7 @@ const HotelDetailHighlight = () => {
   } = useAppSelector((state: any) => state.hotel.value.hotelSearch.hotelInfo);
 
   const { isLoading, isError, data } = useQuery(
-    ["HotelHighlight"],
+    ["HotelHighlight", hotelId],
     () => fetchHotelHighlight(hotelId),
     { refetchOnWindowFocus: false }
   );

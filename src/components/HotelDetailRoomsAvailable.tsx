@@ -11,7 +11,7 @@ const HotelDetailRoomsAvailable = () => {
   );
 
   const { isLoading, isError, data } = useQuery(
-    ["HotelRoomsAvailable"],
+    ["HotelRoomsAvailable", hotelId],
     () => fetchHotelRoomsAvailable(checkIn, checkOut, numOfGuests, hotelId),
     { refetchOnWindowFocus: false }
   );

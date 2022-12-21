@@ -17,7 +17,7 @@ const HotelBookConfirm = () => {
   );
 
   return (
-    <div className="px-8 pt-6 font-DmSans bg-c8 ">
+    <div className="px-8 pt-6  font-DmSans bg-c8">
       <div>
         <h2 className="text-lg font-medium text-c3">Congratulations !</h2>
         <h2 className="mt-4 text-3xl font-medium text-c3">
