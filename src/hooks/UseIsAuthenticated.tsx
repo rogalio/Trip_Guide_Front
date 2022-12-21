@@ -7,9 +7,12 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
   axios.defaults.withCredentials = true;
 
   const checkUser = async () => {
-    const res = await axios.get("http://localhost:4000/isAuthenticated", {
-      withCredentials: true,
-    });
+    const res = await axios.get(
+      "https://tripguideback-production.up.railway.app/isAuthenticated",
+      {
+        withCredentials: true,
+      }
+    );
 
     if (res.status === 200) {
       setIsAuthenticated(true);

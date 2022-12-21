@@ -16,9 +16,10 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost:4000/login", {
+      .post("https://tripguideback-production.up.railway.app/login", {
         username: email,
         password: password,
+        withCredentials: true,
       })
       .then((response) => {
         if (response.status === 200) {
