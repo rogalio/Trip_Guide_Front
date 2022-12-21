@@ -23,7 +23,6 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
         sameSite: "false",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers":
             "Content-Type, Authorization, Content-Length, X-Requested-With , Accept, Origin, Referer, User-Agent",
           "Access-Control-Allow-Credentials": "true",
