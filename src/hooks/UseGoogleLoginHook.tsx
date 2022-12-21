@@ -11,9 +11,9 @@ export const UseGoogleLoginHook = ({ setShowModal, isAuthenticated }: any) => {
       " blank",
       "width=500,height=600"
     );
-    setShowModal(false);
     if (isAuthenticated) {
       googleLoginWindow && googleLoginWindow.close();
+      setShowModal(false);
     }
   };
 
