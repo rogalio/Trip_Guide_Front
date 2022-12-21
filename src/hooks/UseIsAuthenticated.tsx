@@ -9,9 +9,7 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
   const checkUser = async () => {
     const res = await axios.get("http://localhost:4000/isAuthenticated", {
       withCredentials: true,
-
       headers: {
-        sameSite: "false",
         "Content-Type": "application/json",
 
         "Access-Control-Allow-Origin": "*",
