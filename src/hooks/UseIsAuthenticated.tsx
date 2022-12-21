@@ -17,7 +17,6 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
         "Access-Control-Allow-Headers":
           "Content-Type, Authorization, Content-Length, X-Requested-With, Accept, Origin, Referer, User-Agent ",
         "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Private-Network": "true",
       },
     });
 
