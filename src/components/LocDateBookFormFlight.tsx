@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
 import FlightSearchRef from "./FlightSearchRef";
 import { useAppDispatch } from "../redux/hooks";

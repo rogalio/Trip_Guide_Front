@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { useAppSelector } from "../redux/hooks";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import FlightStipeElement from "./FlightStipeElement";
 
 const FlightbookingPay = () => {
-  const { priceBase, priceTax, priceTotal } = useAppSelector(
+  const { priceBase, priceTax } = useAppSelector(
     (state) => state.flight.value.flightInfoDeparture
   );
 
-  const {
-    priceBase: priceBaseReturn,
-    priceTax: priceTaxReturn,
-    priceTotal: priceTotalReturn,
-  } = useAppSelector((state) => state.flight.value.flightInfoReturn);
-  const dispatch = useAppDispatch();
+  const { priceBase: priceBaseReturn, priceTax: priceTaxReturn } =
+    useAppSelector((state) => state.flight.value.flightInfoReturn);
 
   const totaltax: number = priceTax + priceTaxReturn;
   const totalBase: number = priceBase + priceBaseReturn;

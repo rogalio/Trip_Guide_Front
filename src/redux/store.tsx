@@ -12,7 +12,6 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-  persistStore,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";

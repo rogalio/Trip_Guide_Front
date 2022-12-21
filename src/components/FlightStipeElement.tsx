@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import FlightStripeCheckoutForm from "./FlightStripeCheckoutForm";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import FlightBookingInfoDeparture from "./FlightBookingInfoDeparture";
 import FlightBookingInfoReturn from "./FlightBookingInfoReturn";
 const FlightBookingInfo = () => {

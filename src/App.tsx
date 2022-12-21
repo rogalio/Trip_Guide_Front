@@ -14,7 +14,6 @@ const FlightDeparture = lazy(() => import("./pages/FflightListingGo"));
 const FlightReturn = lazy(() => import("./pages/FlightListingReturn"));
 const FlightBookingReview = lazy(() => import("./pages/FlightBookingReview"));
 const FlightBookConfirm = lazy(() => import("./pages/FlightBookConfirm"));
-const GoogleLogin = lazy(() => import("./pages/GoogleLogin"));
 const HotelListing = lazy(() => import("./pages/HotelListing"));
 const HotelDetail = lazy(() => import("./pages/HotelDetail"));
 const HotelBookResa = lazy(() => import("./pages/HotelBookResa"));
@@ -63,10 +62,6 @@ function App() {
                   element={<FlightBookingReview />}
                 />
                 <Route path="/flight/confirm" element={<FlightBookConfirm />} />
-                <Route
-                  path="http://localhost:4000/auth/google"
-                  element={<GoogleLogin />}
-                />
               </Routes>
               <Footer />
             </Suspense>

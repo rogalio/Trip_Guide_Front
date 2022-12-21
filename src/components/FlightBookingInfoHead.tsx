@@ -1,4 +1,3 @@
-import React from "react";
 import { PropsInfoHead } from "../util/Typescript";
 
 const FlightBookingInfoHead = ({

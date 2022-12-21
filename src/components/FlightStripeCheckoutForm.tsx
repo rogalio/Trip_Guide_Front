@@ -1,4 +1,3 @@
-import React from "react";
 import { FormEvent } from "react";
 import { PaymentElement } from "@stripe/react-stripe-js";
 import { useState } from "react";

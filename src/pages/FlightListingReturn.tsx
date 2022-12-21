@@ -1,18 +1,12 @@
-import React from "react";
-
 import { useAppSelector } from "../redux/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFlightReturn } from "../util/axiosApiFetch";
-import AirlineStopsIcon from "@mui/icons-material/AirlineStops";
-import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import FlightListingStep from "../components/FlightListingStep";
-import AirlinesIcon from "@mui/icons-material/Airlines";
 import FlightListingTIme from "../components/FlightListingTIme";
 import FlightListingBookBtn from "../components/FlightListingBookBtn2";
-import { log } from "console";
 
 const FlightListingReturn = () => {
-  const { checkIn, checkOut, whereIata, toIata } = useAppSelector(
+  const { checkOut, whereIata, toIata } = useAppSelector(
     (state) => state.flight.value.flightSearch
   );
 

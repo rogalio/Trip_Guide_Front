@@ -1,4 +1,3 @@
-import React from "react";
 import hero from "../asset/heroHotel.png";
 import TabsBooking from "./TabsBookingHotel";
 

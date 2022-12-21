@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
-import { RoomSelected, HotelInfo, HotelState } from "../util/Typescript";
+import { HotelState } from "../util/Typescript";
 
 // Define the initial state using that type
 const initialState: HotelState = {

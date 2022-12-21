@@ -1,5 +1,3 @@
-import React, { useEffect, useState, useMemo } from "react";
-import axios from "axios";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { addHotelId, addHotelInfo } from "../redux/HotelSlice";
 import { useNavigate } from "react-router-dom";

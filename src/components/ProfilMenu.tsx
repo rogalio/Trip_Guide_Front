@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,7 +12,6 @@ import {
   UserCircleIcon,
   UserIcon,
   BookOpenIcon,
-  PowerIcon,
 } from "@heroicons/react/24/outline";
 import axios from "axios";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import helikapteri from "../asset/helikapter.png";
 
 const FlightBookingInfoTravel = ({
@@ -11,7 +10,6 @@ const FlightBookingInfoTravel = ({
   departureAirportName,
   duration,
   arrivalTime,
-
   arrivalDate,
   arrivalCity,
   arrivalAirportName,

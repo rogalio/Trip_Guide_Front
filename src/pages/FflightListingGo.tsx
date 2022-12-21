@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useAppSelector } from "../redux/hooks";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchFlightDeparture } from "../util/axiosApiFetch";
-import AirlineStopsIcon from "@mui/icons-material/AirlineStops";
-import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import FlightListingStep from "../components/FlightListingStep";
-import AirlinesIcon from "@mui/icons-material/Airlines";
 import FlightListingTIme from "../components/FlightListingTIme";
 import FlightListingBookBtn from "../components/FlightListingBookBtn";
 import { fetchFlightReturn } from "../util/axiosApiFetch";

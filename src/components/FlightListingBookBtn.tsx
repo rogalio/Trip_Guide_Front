@@ -2,7 +2,7 @@ import React from "react";
 import { useAppDispatch } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
 import { addFlightInfoDeparture } from "../redux/FlightSlice";
-import { CompanyType, InfoType } from "../util/Typescript";
+import { InfoType } from "../util/Typescript";
 
 const FlightListingBookBtn = ({ flight, info }: any) => {
   const navigate = useNavigate();

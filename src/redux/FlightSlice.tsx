@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
-import { FlightState, CompanyType, InfoType } from "../util/Typescript";
-import { log } from "console";
+import { FlightState, InfoType } from "../util/Typescript";
 
 // Define the initial state using that type
 const initialState: FlightState = {

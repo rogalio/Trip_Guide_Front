@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useAppDispatch } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
 import { addFlightInfoReturn } from "../redux/FlightSlice";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import Switch from "@mui/material/Switch";
 
@@ -23,7 +23,7 @@ const SwitchTheme = () => {
 
   return (
     <div className="flex ">
-      <div className="hidden px-2  md:flex bg-c7 rounded-2xl dark:bg-c3 drop-shadow">
+      <div className="hidden px-2 md:flex bg-c7 rounded-2xl dark:bg-c3 drop-shadow">
         {isDarkmode ? (
           <SunIcon className="w-4 text-c5 " />
         ) : (

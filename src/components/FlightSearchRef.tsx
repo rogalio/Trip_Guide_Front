@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";

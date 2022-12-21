@@ -1,16 +1,12 @@
-import React from "react";
 import { useAppSelector } from "../redux/hooks";
 
 const FlightBookingPriceDetails = () => {
-  const { priceBase, priceTax, priceTotal } = useAppSelector(
+  const { priceBase, priceTax } = useAppSelector(
     (state) => state.flight.value.flightInfoDeparture
   );
 
-  const {
-    priceBase: priceBaseReturn,
-    priceTax: priceTaxReturn,
-    priceTotal: priceTotalReturn,
-  } = useAppSelector((state) => state.flight.value.flightInfoReturn);
+  const { priceBase: priceBaseReturn, priceTax: priceTaxReturn } =
+    useAppSelector((state) => state.flight.value.flightInfoReturn);
 
   const totaltax: number = priceTax + priceTaxReturn;
   const totalBase: number = priceBase + priceBaseReturn;

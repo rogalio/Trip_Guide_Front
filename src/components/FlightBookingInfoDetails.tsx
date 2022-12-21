@@ -1,5 +1,3 @@
-import React from "react";
-
 const FlightBookingInfoDetails = ({ aircraft }: any) => {
   return (
     <div className="flex justify-between p-4 text-base font-medium md:justify-start md:gap-10 text-c3 dark:text-c7">

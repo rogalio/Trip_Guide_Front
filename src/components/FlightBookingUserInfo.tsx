@@ -1,5 +1,3 @@
-import React from "react";
-
 const FlightBookingUserInfo = () => {
   return (
     <div className="px-6 dark:bg-c1">
