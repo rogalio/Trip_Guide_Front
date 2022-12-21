@@ -7,20 +7,24 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
   axios.defaults.withCredentials = true;
 
   const checkUser = async () => {
-    const res = await axios.get("http://localhost:4000/isAuthenticated", {
-      withCredentials: true,
+    const res = await axios.get(
+      "https://tripguideback-production.up.railway.app/isAuthenticated",
+      {
+        withCredentials: true,
 
-      headers: {
-        sameSite: "false",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:4000",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        "Access-Control-Allow-Headers":
-          "Content-Type, Authorization, Content-Length, X-Requested-With",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Private-Network": "true",
-      },
-    });
+        headers: {
+          sameSite: "false",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":
+            "https://tripguideback-production.up.railway.app/isAuthenticated",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          "Access-Control-Allow-Headers":
+            "Content-Type, Authorization, Content-Length, X-Requested-With",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Private-Network": "true",
+        },
+      }
+    );
 
     if (res.status === 200) {
       setIsAuthenticated(true);
