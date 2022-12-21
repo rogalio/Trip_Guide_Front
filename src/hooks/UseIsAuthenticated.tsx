@@ -4,6 +4,8 @@ import axios from "axios";
 export const UseIsAuthenticated = ({ setShowModal }: any) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  axios.defaults.withCredentials = true;
+
   const checkUser = async () => {
     const res = await axios.get("http://localhost:4000/isAuthenticated", {
       withCredentials: true,
