@@ -14,7 +14,7 @@ export const UseGoogleLoginHook = ({ setShowModal }: any) => {
     setShowModal(false);
     setTimeout(() => {
       googleLoginWindow && googleLoginWindow.close();
-    }, 1000);
+    }, 3000);
   };
 
   return { handleGoogleLogin };
