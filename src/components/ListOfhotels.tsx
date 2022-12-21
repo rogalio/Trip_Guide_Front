@@ -54,7 +54,7 @@ const ListOfhotels = () => {
   }
 
   return (
-    <div className="mx-6 font-DmSans">
+    <div className="max-w-5xl mx-6 lg:mx-auto font-DmSans">
       <div className="flex flex-col gap-4 ">
         {data?.result?.map((hotel: any) => {
           return (
