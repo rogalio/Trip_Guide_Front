@@ -11,7 +11,7 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
       withCredentials: true,
 
       headers: {
-        sameSite: "none",
+        sameSite: "false",
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "http://localhost:4000",
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
