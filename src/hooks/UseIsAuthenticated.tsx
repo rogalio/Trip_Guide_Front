@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export const UseIsAuthenticated = ({ setShowModal }: any) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   axios.defaults.withCredentials = true;
 
   const checkUser = async () => {
@@ -22,5 +21,6 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
       setShowModal(true);
     }
   };
+
   return { isAuthenticated, setIsAuthenticated, checkUser };
 };

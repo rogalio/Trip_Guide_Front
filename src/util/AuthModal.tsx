@@ -8,15 +8,18 @@ import RegisterFormEmail from "../components/RegisterFormEmail";
 import { UseIsAuthenticated } from "../hooks/UseIsAuthenticated";
 
 export const AuthModal = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [showRegisterForm, setShowRegisterForm] = useState(false);
 
-  const { checkUser } = UseIsAuthenticated({ setShowModal });
+  const { checkUser, isAuthenticated } = UseIsAuthenticated({ setShowModal });
   const { handleGoogleLogin } = UseGoogleLoginHook({ setShowModal });
 
   useEffect(() => {
     checkUser();
-  }, [checkUser]);
+    if (!isAuthenticated) {
+      setShowModal(true);
+    }
+  }, [checkUser, isAuthenticated]);
 
   if (showModal) {
     return (
