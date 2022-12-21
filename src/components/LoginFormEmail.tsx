@@ -19,11 +19,6 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
       .post("http://localhost:4000/login ", {
         username: email,
         password: password,
-        withCredentials: true,
-        headers: {
-          credentials: "include",
-          "Access-Control-Allow-Origin": true,
-        },
       })
       .then((response) => {
         if (response.status === 200) {
