@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const UseGoogleLoginHook = ({ setShowModal }: any) => {
+export const UseGoogleLoginHook = ({ setShowModal, isAuthenticated }: any) => {
   axios.defaults.withCredentials = true;
 
   const handleGoogleLogin = async () => {
@@ -12,9 +12,9 @@ export const UseGoogleLoginHook = ({ setShowModal }: any) => {
       "width=500,height=600"
     );
     setShowModal(false);
-    setTimeout(() => {
+    if (isAuthenticated) {
       googleLoginWindow && googleLoginWindow.close();
-    }, 3000);
+    }
   };
 
   return { handleGoogleLogin };

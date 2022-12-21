@@ -12,7 +12,10 @@ export const AuthModal = () => {
   const [showRegisterForm, setShowRegisterForm] = useState(false);
 
   const { checkUser, isAuthenticated } = UseIsAuthenticated({ setShowModal });
-  const { handleGoogleLogin } = UseGoogleLoginHook({ setShowModal });
+  const { handleGoogleLogin } = UseGoogleLoginHook({
+    setShowModal,
+    isAuthenticated,
+  });
 
   useEffect(() => {
     checkUser();
