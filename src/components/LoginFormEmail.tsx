@@ -17,16 +17,16 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
   const onSubmit = (): void => {
     fetch("http://localhost:4000/login", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-        "Access-Control-Allow-Credentials": "true",
-      },
+      credentials: "include",
       body: JSON.stringify({
         username: email,
         password: password,
       }),
-    });
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => response.json());
+
     // axios
     //   .post("http://localhost:4000/login ", {
     //     username: email,
