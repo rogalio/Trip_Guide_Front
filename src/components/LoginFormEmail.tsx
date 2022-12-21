@@ -25,7 +25,7 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response) => response.json());
+    });
 
     // axios
     //   .post("http://localhost:4000/login ", {
