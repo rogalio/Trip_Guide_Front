@@ -20,7 +20,11 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
         username: email,
         password: password,
         withCredentials: true,
-        Credentials: "omit",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
       })
       .then((response) => {
         if (response.status === 200) {
