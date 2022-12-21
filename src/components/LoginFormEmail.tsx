@@ -9,42 +9,23 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
     formState: { errors },
   } = useForm();
 
-  axios.defaults.withCredentials = true;
-
   const email: string = watch("email");
   const password: string = watch("password");
 
   const onSubmit = (): void => {
-    fetch("http://localhost:4000/login", {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify({
+    axios.defaults.withCredentials = true;
+    axios
+      .post("http://localhost:4000/login ", {
         username: email,
         password: password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
-      if (response.status === 200) {
-        setShowModal(false);
-      } else {
-        console.log("error");
-      }
-    });
-
-    // axios
-    //   .post("http://localhost:4000/login ", {
-    //     username: email,
-    //     password: password,
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     if (response.status === 200) {
-    //       console.log(response.data);
-    //       setShowModal(false);
-    //     }
-    //   });
+        withCredentials: true,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log(response.data);
+          setShowModal(false);
+        }
+      });
   };
 
   return (

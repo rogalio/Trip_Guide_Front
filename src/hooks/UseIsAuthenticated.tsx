@@ -7,23 +7,11 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
   axios.defaults.withCredentials = true;
 
   const checkUser = async () => {
-    // const res = await axios.get("http://localhost:4000/isAuthenticated", {
-    //   withCredentials: true,
-    // });
-
-    // if (res.status === 200) {
-    //   setIsAuthenticated(true);
-    //   setShowModal(false);
-    // }
-    const response = await fetch("http://localhost:4000/isAuthenticated", {
-      method: "GET",
-      credentials: "include",
+    const res = await axios.get("http://localhost:4000/isAuthenticated", {
+      withCredentials: true,
     });
 
-    if (response.status === 200) {
-      const data = await response.json();
-      console.log(data);
-
+    if (res.status === 200) {
       setIsAuthenticated(true);
       setShowModal(false);
     }
