@@ -17,6 +17,9 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
     if (res.status === 200) {
       setIsAuthenticated(true);
       setShowModal(false);
+    } else {
+      setIsAuthenticated(false);
+      setShowModal(true);
     }
   };
   return { isAuthenticated, setIsAuthenticated, checkUser };
