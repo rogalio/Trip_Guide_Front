@@ -29,6 +29,7 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
           "Access-Control-Allow-Headers":
             "Content-Type, Authorization, Content-Length, X-Requested-With",
           "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Private-Network": "true",
           sameSite: "none",
         },
       })
