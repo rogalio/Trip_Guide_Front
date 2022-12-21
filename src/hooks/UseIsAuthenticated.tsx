@@ -9,11 +9,6 @@ export const UseIsAuthenticated = ({ setShowModal }: any) => {
   const checkUser = async () => {
     const res = await axios.get("http://localhost:4000/isAuthenticated", {
       withCredentials: true,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Headers":
-          "Content-Type, Authorization, Content-Length, X-Requested-With, Accept, Origin, Referer, User-Agent ",
-      },
     });
 
     if (res.status === 200) {
