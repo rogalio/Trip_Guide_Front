@@ -16,15 +16,14 @@ const LoginFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
 
   const onSubmit = (): void => {
     axios
-      .post("https://tripguideback-production.up.railway.app/login", {
+      .post("http://localhost:4000/login ", {
         username: email,
         password: password,
         withCredentials: true,
         sameSite: "false",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin":
-            "https://tripguideback-production.up.railway.app/login",
+          "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           "Access-Control-Allow-Headers":
             "Content-Type, Authorization, Content-Length, X-Requested-With",
