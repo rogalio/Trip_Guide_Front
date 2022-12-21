@@ -14,9 +14,9 @@ export const AuthModal = () => {
   const { checkUser } = UseIsAuthenticated({ setShowModal });
   const { handleGoogleLogin } = UseGoogleLoginHook({ setShowModal });
 
-  useEffect(() => {
-    checkUser();
-  }, [checkUser]);
+  // useEffect(() => {
+  //   checkUser();
+  // }, [checkUser]);
 
   if (showModal) {
     return (
