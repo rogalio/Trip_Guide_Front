@@ -5,6 +5,7 @@ import FlightListingStep from "../components/FlightListingStep";
 import FlightListingTIme from "../components/FlightListingTIme";
 import FlightListingBookBtn from "../components/FlightListingBookBtn";
 import { fetchFlightReturn } from "../util/axiosApiFetch";
+import Loader from "../components/Loader";
 
 const FflightListing = () => {
   const { checkIn, checkOut, whereIata, toIata } = useAppSelector(
@@ -20,15 +21,15 @@ const FflightListing = () => {
   );
 
   if (isLoading) {
-    return (
-      <div className="justify-center max-w-5xl mx-auto font-DmSans dark:bg-c1">
-        Loading...
-      </div>
-    );
+    return <Loader />;
   }
 
   if (isError) {
-    return <div>Error: please refresh</div>;
+    return (
+      <div className="justify-center max-w-5xl mx-auto font-DmSans dark:bg-c1">
+        Error: please refresh
+      </div>
+    );
   }
 
   return (

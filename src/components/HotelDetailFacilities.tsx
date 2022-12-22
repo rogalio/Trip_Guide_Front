@@ -1,6 +1,7 @@
 import { useAppSelector } from "../redux/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { fetchHotelFacilities } from "../util/axiosApiFetch";
+import Loader from "../components/Loader";
 
 const HotelDetailFacilities = () => {
   const { hotelId } = useAppSelector((state) => state.hotel.value.hotelSearch);
@@ -12,7 +13,7 @@ const HotelDetailFacilities = () => {
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {

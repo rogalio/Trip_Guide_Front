@@ -4,6 +4,7 @@ import { fetchFlightReturn } from "../util/axiosApiFetch";
 import FlightListingStep from "../components/FlightListingStep";
 import FlightListingTIme from "../components/FlightListingTIme";
 import FlightListingBookBtn from "../components/FlightListingBookBtn2";
+import Loader from "../components/Loader";
 
 const FlightListingReturn = () => {
   const { checkOut, whereIata, toIata } = useAppSelector(
@@ -17,7 +18,7 @@ const FlightListingReturn = () => {
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {

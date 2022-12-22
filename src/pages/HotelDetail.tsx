@@ -3,6 +3,7 @@ import HotelDetailPhotos from "../components/HotelDetailPhotos";
 import HotelDetailTop from "../components/HotelDetailTop";
 import HotelDetailHighlight from "../components/HotelDetailHighlight";
 import HotelDetailFacilities from "../components/HotelDetailFacilities";
+import Loader from "../components/Loader";
 
 const HotelDetailRoomsAvailable = lazy(
   () => import("../components/HotelDetailRoomsAvailable")
@@ -18,7 +19,7 @@ const HotelDetail = () => {
   return (
     <div className="dark:bg-c1">
       <div className="max-w-5xl px-8 mx-auto -mt-6 dark:bg-c1 ">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <HotelDetailTop />
           <HotelDetailPhotos />
           <HotelDetailHighlight />

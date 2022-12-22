@@ -4,6 +4,7 @@ import { addRoomSelected } from "../redux/HotelSlice";
 import DoneIcon from "@mui/icons-material/Done";
 import { useQuery } from "@tanstack/react-query";
 import { fetchHotelRoomsAvailable } from "../util/axiosApiFetch";
+import Loader from "../components/Loader";
 
 const HotelDetailRoomsAvailable = () => {
   const { checkIn, checkOut, numOfGuests, hotelId } = useAppSelector(
@@ -34,7 +35,7 @@ const HotelDetailRoomsAvailable = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {

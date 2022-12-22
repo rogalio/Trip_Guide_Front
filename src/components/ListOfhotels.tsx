@@ -9,6 +9,7 @@ import DoneIcon from "@mui/icons-material/Done";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import { useQuery } from "@tanstack/react-query";
 import { fetchHotelList } from "../util/axiosApiFetch";
+import Loader from "../components/Loader";
 
 const ListOfhotels = () => {
   const { checkIn, checkOut, destId, destType, numOfGuests } = useAppSelector(
@@ -44,7 +45,7 @@ const ListOfhotels = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {

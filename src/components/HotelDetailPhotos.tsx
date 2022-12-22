@@ -1,6 +1,7 @@
 import { useAppSelector } from "../redux/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { fetchHotelPhotos } from "../util/axiosApiFetch";
+import Loader from "../components/Loader";
 
 const HotelDetailPhotos = () => {
   const { hotelId } = useAppSelector((state) => state.hotel.value.hotelSearch);
@@ -10,7 +11,7 @@ const HotelDetailPhotos = () => {
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {
