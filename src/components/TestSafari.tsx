@@ -38,7 +38,7 @@ const TestSafari = () => {
         >
           Yes
         </button>
-        <button className="bg-c5" onClick={() => setIsGranted(false)}>
+        <button className="bg-c5" onClick={() => setIsGranted(true)}>
           No
         </button>
       </div>
