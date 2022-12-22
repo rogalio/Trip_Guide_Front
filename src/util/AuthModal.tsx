@@ -8,7 +8,7 @@ import RegisterFormEmail from "../components/RegisterFormEmail";
 import { UseIsAuthenticated } from "../hooks/UseIsAuthenticated";
 
 export const AuthModal = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [showRegisterForm, setShowRegisterForm] = useState(false);
 
   const { checkUser, isAuthenticated } = UseIsAuthenticated({ setShowModal });
@@ -18,6 +18,11 @@ export const AuthModal = () => {
   });
 
   useEffect(() => {
+    checkUser();
+    setTimeout(() => {
+      setShowModal(true);
+    }, 3000);
+
     checkUser();
   }, [checkUser, isAuthenticated]);
 
