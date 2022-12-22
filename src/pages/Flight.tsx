@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import HeroFlight from "../components/HeroFlight";
 import DestinationCard from "../components/DestinationCard";
 import TopTourCard from "../components/TopTourCard";
+import { log } from "console";
 
 const Flight = () => {
   const requestStorageAccess = (setIsGranted: (value: boolean) => void) => {
@@ -23,9 +24,13 @@ const Flight = () => {
   }, []);
 
   if (isGranted) {
+    console.log("Access to storage has been granted");
+
     // Access to storage has been granted
     // You can now use localStorage or indexedDB
   } else {
+    console.log("Access to storage has not been granted yet");
+
     // Access to storage has not been granted yet
     // You should not use localStorage or indexedDB
     return (
