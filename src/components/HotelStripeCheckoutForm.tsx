@@ -23,7 +23,7 @@ const HotelStripeCheckoutForm = () => {
       elements,
       confirmParams: {
         // metre le bon redirect
-        return_url: "http://localhost:3000/hotel/booking/success",
+        return_url: "https://trip-guide-gamma.vercel.app/hotel/booking/success",
       },
     });
 

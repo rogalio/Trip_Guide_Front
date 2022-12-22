@@ -23,7 +23,7 @@ const FlightStripeCheckoutForm = () => {
       elements,
       confirmParams: {
         // metre le bon redirect
-        return_url: "http://localhost:3000/flight/confirm",
+        return_url: "https://trip-guide-gamma.vercel.app/flight/confirm",
       },
     });
 
