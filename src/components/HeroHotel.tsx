@@ -13,6 +13,7 @@ const Hero = () => {
         <h1 className="absolute top-16 font-Poppins font-bold mr-12 text-[44px] p-8 leading-[54px] md:mx-6 md:top-20  dark:text-c3 md:text-[64px] md:w-[70%] md:leading-[80px] ">
           Book With us And Enjoy your Journey
         </h1>
+
         <TabsBooking />
       </div>
     </div>

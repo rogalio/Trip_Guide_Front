@@ -56,7 +56,7 @@ const LocDateBookiForm = () => {
 
           <input
             placeholder="Where are you from ?"
-            className="w-full h-full   pt-6 pl-6 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
+            className="w-full h-full    pt-6 pl-6 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
             type="date"
             {...register("checkIn", { required: true })}
           />
@@ -79,7 +79,7 @@ const LocDateBookiForm = () => {
           <input
             {...register("checkOut", { required: true })}
             placeholder="Where are you from ?"
-            className="w-full h-full pt-6 pl-6  bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
+            className="w-full h-full pt-6 pl-6   bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
             type="date"
           />
           <ArrowsRightLeftIcon className="hidden md:flex absolute w-5 dark:text-c9 dark:bg-c3 top-5 left-[-16px] text-c3 bg-c9 border border-c4 rounded-full p-1 " />

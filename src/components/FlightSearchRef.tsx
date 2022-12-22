@@ -122,7 +122,7 @@ const FlightSearchRef = ({
           <input
             {...register("whereFrom", { required: true })}
             placeholder={"where from ?"}
-            className="w-full h-full pt-6 pl-6 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
+            className="w-full  h-full pt-6 pl-6 bg-[#F4F5F7] dark:bg-c3 text-c4 rounded-xl focus:ring-2 focus:ring-c6 outline-none shadow-md  "
             type="text"
             value={
               locationFromChooseByUser?.airport
