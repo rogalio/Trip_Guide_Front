@@ -1,5 +1,4 @@
 import HeroFlight from "../components/HeroFlight";
-import { AuthModal } from "../util/AuthModal";
 import axios from "axios";
 import DestinationCard from "../components/DestinationCard";
 import TopTourCard from "../components/TopTourCard";
@@ -9,7 +8,6 @@ const Flight = () => {
 
   return (
     <div className="relative dark:bg-c1">
-      <AuthModal />
       <HeroFlight />
       <DestinationCard />
       <TopTourCard />
