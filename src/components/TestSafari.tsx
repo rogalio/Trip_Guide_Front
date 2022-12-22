@@ -13,7 +13,7 @@ const TestSafari = () => {
     }
   };
 
-  const [isGranted, setIsGranted] = useState(false);
+  const [isGranted, setIsGranted] = useState(true);
 
   useEffect((): void => {
     requestStorageAccess(setIsGranted);
