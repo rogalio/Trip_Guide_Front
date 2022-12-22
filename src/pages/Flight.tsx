@@ -8,7 +8,6 @@ import { AuthModal } from "../util/AuthModal";
 const Flight = () => {
   return (
     <div className="relative dark:bg-c1">
-      <TestSafari />
       <AuthModal />
       <HeroFlight />
       <DestinationCard />

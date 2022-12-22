@@ -6,6 +6,7 @@ import LoginFormEmail from "../components/LoginFormEmail";
 import { UseGoogleLoginHook } from "../hooks/UseGoogleLoginHook";
 import RegisterFormEmail from "../components/RegisterFormEmail";
 import { UseIsAuthenticated } from "../hooks/UseIsAuthenticated";
+import TestSafari from "../components/TestSafari";
 
 export const AuthModal = () => {
   const [showModal, setShowModal] = useState(true);
@@ -27,6 +28,7 @@ export const AuthModal = () => {
   if (showModal) {
     return (
       <div>
+        <TestSafari />
         <div className="fixed top-0 left-0 z-40 w-full h-full cursor-pointer opacity-80 bg-c1 " />
         <div className="fixed left-1/2 right-1/2 top-[45%] w-[90%]   md:w-1/2 lg:w-1/3 translate-x-[-50%] translate-y-[-50%] bg-c9 rounded-xl z-40 bg-blend-overlay p-6 font-DmSans shadow-lg dark:bg-c1">
           <CloseIcon
