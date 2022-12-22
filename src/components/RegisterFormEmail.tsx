@@ -16,7 +16,7 @@ const RegisterFormEmail = ({ setShowModal, setShowRegisterForm }: any) => {
 
   const onSubmit = (): void => {
     axios
-      .post("http://localhost:4000/register", {
+      .post("https://tripguideback-production.up.railway.app/login", {
         username: email,
         password: password,
         withCredentials: true,
