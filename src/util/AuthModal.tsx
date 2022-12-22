@@ -18,10 +18,7 @@ export const AuthModal = () => {
   });
 
   useEffect(() => {
-    setInterval(() => {
-      checkUser();
-      setShowModal(true);
-    }, 4000);
+    checkUser();
   }, [checkUser, isAuthenticated]);
 
   if (showModal) {
