@@ -25,7 +25,9 @@ const FlightbookingPay = () => {
   // fetch stripe public_key from server
   useEffect(() => {
     const getStripeKey = async () => {
-      const { data } = await axios.get("http://localhost:4000/config");
+      const { data } = await axios.get(
+        "https://tripguideback-production.up.railway.app/config"
+      );
       setStripePromise(loadStripe(data.publishableKey));
       loadStripe(data.publishableKey);
     };
@@ -35,9 +37,12 @@ const FlightbookingPay = () => {
   // fetch stripe secret_key from server
   useEffect(() => {
     const getStripeSecretKey = async () => {
-      const { data } = await axios.post("http://localhost:4000/flight/pay", {
-        amount: total,
-      });
+      const { data } = await axios.post(
+        "https://tripguideback-production.up.railway.app/flight/pay",
+        {
+          amount: total,
+        }
+      );
       setClientSecret(data.clientSecret);
     };
     getStripeSecretKey();
