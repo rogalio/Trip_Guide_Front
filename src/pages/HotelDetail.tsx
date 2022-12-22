@@ -17,7 +17,7 @@ const HotelDetail = () => {
   };
 
   return (
-    <div className="dark:bg-c1">
+    <div className=" h-fit dark:bg-c1">
       <div className="max-w-5xl px-8 mx-auto -mt-6 dark:bg-c1 ">
         <Suspense fallback={<Loader />}>
           <HotelDetailTop />
