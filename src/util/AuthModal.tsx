@@ -19,9 +19,9 @@ export const AuthModal = () => {
 
   useEffect(() => {
     checkUser();
-    if (!isAuthenticated) {
-      setShowModal(true);
-    }
+    // if (!isAuthenticated) {
+    //   setShowModal(true);
+    // }
   }, [checkUser, isAuthenticated]);
 
   if (showModal) {
