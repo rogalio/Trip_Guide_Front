@@ -1,6 +1,9 @@
 import axios from "axios";
 
-export const UseGoogleLoginHook = ({ setShowModal, isAuthenticated }: any) => {
+export const UseGoogleLoginHook = ({
+  setShowModal,
+  isAuthenticated,
+}: any): Promise<void> => {
   axios.defaults.withCredentials = true;
 
   const handleGoogleLogin = async () => {
